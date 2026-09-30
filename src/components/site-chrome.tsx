@@ -22,7 +22,7 @@ export function Logo({ light = false }: { light?: boolean }) {
     <span className={`flex items-center justify-center shrink-0 ${light ? "bg-background rounded-sm p-1.5 size-12" : "size-11"}`}>
       <img src={logoAsset.url} alt="" width={44} height={40} className="w-full h-full object-contain" />
     </span>
-    <span className="font-display text-[21px] leading-[.8] font-semibold">Psychologists<br/><span className="text-[18px] italic font-normal text-leaf">Hub</span></span>
+    <span className="font-display text-[21px] leading-[.8] font-semibold">Psychologists<br/><span className={`text-[18px] italic font-normal ${light ? "text-sage" : "text-leaf"}`}>Hub</span></span>
   </Link>;
 }
 

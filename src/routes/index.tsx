@@ -1,54 +1,168 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-react";
-import { BookingLink, ConsultationBand, SectionHeading } from "@/components/site-chrome";
-import { services, values } from "@/lib/site-content";
+import { createFileRoute } from "@tanstack/react-router";
+import { ArrowDown, Check, X, Compass, MessageCircle, Map, CalendarCheck, MapPin, Monitor, ShieldCheck, Clock, Wallet, Globe } from "lucide-react";
+import { BookingLink } from "@/components/site-chrome";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "Psychologists Hub | Therapy & Mental Health Care in Islamabad" },
-    { name: "description", content: "Compassionate, confidential therapy in Islamabad and online. Explore individual therapy, assessments and workplace wellbeing with Psychologists Hub." },
-    { property: "og:title", content: "Psychologists Hub | Therapy & Mental Health Care in Islamabad" },
-    { property: "og:description", content: "A thoughtful space for feeling better. Confidential therapy in Islamabad and online." },
+    { title: "First Step Clarity Session | Psychologists Hub Islamabad" },
+    { name: "description", content: "Not sure where to start with therapy? Book a First Step Clarity Session with Dr. Halima S. Qureshi — in Islamabad or online — and leave with a clear next step." },
+    { property: "og:title", content: "First Step Clarity Session | Psychologists Hub" },
+    { property: "og:description", content: "One conversation to understand what you're facing and what to do next. In Islamabad or online." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ]}),
   component: Index,
 });
 
+const wrap = "max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14";
+
+function Label({ n, children }: { n: string; children: string }) {
+  return <p className="eyebrow text-sage-deep mb-6 flex items-center gap-3"><span className="text-muted-foreground">{n}</span><span className="w-8 h-px bg-sage-deep"/>{children}</p>;
+}
+
+const steps = [
+  { icon: CalendarCheck, title: "Book a time", text: "Choose a slot that suits you through our booking calendar — in person or online." },
+  { icon: MessageCircle, title: "Talk it through", text: "Share what's been happening at your own pace. Dr. Qureshi listens, asks, and helps make sense of it." },
+  { icon: Compass, title: "Get clarity", text: "Understand what you may be experiencing and which kind of support could genuinely help." },
+  { icon: Map, title: "Leave with a plan", text: "Walk away with a clear, practical next step — whether that's therapy, an assessment, or something else." },
+];
+
+const audience = [
+  "You feel anxious, low, or overwhelmed but can't name why",
+  "You've never been to therapy and don't know what to expect",
+  "You're struggling with relationships, family, or work stress",
+  "Something difficult happened and it still weighs on you",
+  "You've tried therapy before and want a fresh, clearer start",
+  "You're overseas and want support from a psychologist you can trust",
+];
+
+const takeaways = [
+  "A clearer understanding of what you're going through",
+  "An honest view of which approach may suit you — such as CBT, EMDR or IFS-informed work",
+  "A recommended next step and what it would involve",
+  "Space to ask anything about therapy, confidentiality and cost",
+];
+
+const faqs = [
+  { q: "Is the Clarity Session confidential?", a: "Yes. All sessions at Psychologists Hub are strictly private, and your personal information is never shared without your consent." },
+  { q: "Do I need to know what's wrong before booking?", a: "Not at all. That's exactly what this session is for — you only need to come as you are." },
+  { q: "Can I attend online?", a: "Yes. Sessions are available in person at our Islamabad office or securely online, wherever you are in Pakistan or abroad." },
+  { q: "How much does a session cost?", a: "Our standard session fee is 6,000 PKR for clients in Pakistan and $30 USD for overseas clients." },
+  { q: "Who will I be speaking with?", a: "Dr. Halima S. Qureshi, Clinical Psychologist and founder of Psychologists Hub." },
+  { q: "What happens after the session?", a: "There is no obligation. You'll leave with a recommendation, and you decide if and when to continue." },
+];
+
 function Index() {
   return <main>
-    <section className="hero-field text-primary-foreground min-h-[660px] md:min-h-[680px] flex items-center">
-      <div className="hero-arc" aria-hidden="true" />
-      <div className="max-w-[1500px] mx-auto w-full px-5 md:px-10 xl:px-14 py-24 md:py-20 relative z-10">
-        <div className="flex gap-12 xl:gap-24 items-start">
-          <div className="hidden xl:block self-stretch pt-2"><span className="side-index eyebrow text-sage/75">Psychologists Hub · Islamabad</span></div>
-          <div className="max-w-[970px] reveal">
-            <p className="eyebrow text-sage mb-9">A space to feel like yourself again</p>
-            <h1 className="display text-[clamp(4.4rem,10.3vw,10.7rem)] leading-[.85]">A little space<br/>to <span className="hero-word">feel better.</span></h1>
-            <div className="mt-10 md:mt-14 flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-16">
-              <p className="text-sm md:text-base leading-7 text-primary-foreground/75 max-w-[355px]">Compassionate, confidential psychological care—here in Islamabad and online, wherever life finds you.</p>
-              <BookingLink light>Book an appointment</BookingLink>
-            </div>
+    {/* Hero */}
+    <section className="hero-field text-primary-foreground min-h-[680px] flex items-center">
+      <div className="hero-arc" aria-hidden="true"/>
+      <div className={`${wrap} w-full py-24 relative z-10`}>
+        <div className="max-w-[980px] reveal">
+          <p className="eyebrow text-sage mb-9">First Step Clarity Session · Islamabad & online</p>
+          <h1 className="display text-[clamp(3.8rem,9vw,9.5rem)] leading-[.86]">Start with <span className="hero-word">one conversation.</span></h1>
+          <div className="mt-12 flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-16">
+            <p className="text-base leading-7 text-primary-foreground/75 max-w-[380px]">A calm, confidential session with Dr. Halima S. Qureshi to understand what you're facing — and leave knowing exactly what to do next.</p>
+            <BookingLink light>Book your Clarity Session</BookingLink>
           </div>
         </div>
-        <div className="mt-20 md:mt-16 pt-5 border-t border-primary-foreground/20 flex items-center justify-between text-[11px] uppercase tracking-[.15em] text-primary-foreground/60"><span>Care for every chapter</span><span className="flex gap-2 items-center">Explore below <ArrowDown size={14}/></span></div>
+        <div className="mt-20 pt-5 border-t border-primary-foreground/20 flex flex-wrap gap-x-10 gap-y-3 text-[11px] uppercase tracking-[.15em] text-primary-foreground/60"><span>Confidential</span><span>Female-led practice</span><span>10+ years experience</span><span className="ml-auto flex gap-2 items-center">Scroll <ArrowDown size={14}/></span></div>
       </div>
     </section>
 
-    <section className="bg-cream"><div className="max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14 py-20 md:py-28 grid md:grid-cols-[.8fr_1.2fr] gap-8 md:gap-24 items-start">
-      <div><p className="eyebrow text-sage-deep">Welcome to Psychologists Hub</p><div className="mt-8 w-20 h-px bg-sage-deep"/></div>
-      <div><h2 className="display text-5xl md:text-6xl xl:text-[5.5rem]">Taking care of your mind is a <em className="font-normal text-sage-deep">beautiful beginning.</em></h2><div className="mt-9 flex flex-col md:flex-row gap-8 md:gap-14 items-start"><p className="text-muted-foreground leading-8 max-w-xl">Life can feel heavy sometimes. You deserve a place to pause, be heard, and explore what comes next. Our female-led practice offers thoughtful, evidence-informed support in a setting grounded in empathy and privacy.</p><Link to="/about" className="shrink-0 inline-flex items-center gap-3 text-sm font-semibold border-b border-primary pb-2 hover:text-sage-deep">Get to know us <ArrowUpRight size={17}/></Link></div></div>
+    {/* Problem */}
+    <section className="bg-cream"><div className={`${wrap} py-20 md:py-28 grid md:grid-cols-[.8fr_1.2fr] gap-10 md:gap-24`}>
+      <Label n="01">The problem</Label>
+      <div><h2 className="display text-5xl md:text-7xl">Not sure <em className="font-normal text-sage-deep">where to start?</em></h2>
+        <p className="mt-8 text-muted-foreground leading-8 max-w-2xl">Maybe you've felt off for a while. Maybe something happened, or maybe nothing did — and that's what's confusing. Therapy, counselling, assessments, different approaches… it's hard to know what you need, and easy to keep putting it off.</p>
+        <p className="mt-5 font-display text-3xl italic">You don't need all the answers to take the first step.</p></div>
     </div></section>
 
-    <section className="max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14 py-20 md:py-28"><SectionHeading label="How we can help" title={<>Support for the <em className="font-normal text-sage-deep">whole you.</em></>} aside="Every journey is different. We’ll meet you where you are and find a way forward together."/>
-      <div className="mt-14 md:mt-20 grid md:grid-cols-2 xl:grid-cols-3 border-t border-l border-border">
-        {services.map((item, i) => <Link to="/services" key={item.title} className="service-card border-r border-b border-border p-7 md:p-9 min-h-[260px] flex flex-col justify-between group"><div className="flex justify-between items-start"><span className="text-xs text-muted-foreground">0{i+1} / 06</span><item.icon size={26} strokeWidth={1.2} className="text-sage-deep"/></div><div><div className="flex items-center justify-between gap-2"><h3 className="font-display text-[32px] leading-none">{item.title}</h3><ArrowUpRight size={18} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0"/></div><p className="mt-4 text-sm leading-6 text-muted-foreground">{item.description}</p></div></Link>)}
-      </div><div className="mt-8 text-right"><Link to="/services" className="inline-flex items-center gap-3 text-sm font-semibold border-b border-primary pb-2">Explore all services <ArrowRight size={17}/></Link></div>
+    {/* What */}
+    <section className={`${wrap} py-20 md:py-28 grid lg:grid-cols-2 gap-14 lg:gap-24 items-center`}>
+      <div><Label n="02">What is it?</Label><h2 className="display text-5xl md:text-7xl">What is the <em className="font-normal text-sage-deep">Clarity Session?</em></h2></div>
+      <div className="space-y-6 text-muted-foreground leading-8"><p>The First Step Clarity Session is a single, focused conversation with a clinical psychologist. It's designed for people who know they want support but aren't sure what kind.</p><p>Together, you'll look at what's been happening, what matters to you, and what support is most likely to help — so your next step is based on understanding, not guesswork.</p></div>
     </section>
 
-    <section className="bg-surface"><div className="max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14 py-20 md:py-28 grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center"><div><p className="eyebrow text-sage-deep mb-8">Therapy, on your terms</p><h2 className="display text-6xl md:text-7xl xl:text-[6rem]">The right support,<br/><em className="font-normal">wherever you are.</em></h2><p className="text-muted-foreground leading-8 max-w-lg mt-8 mb-9">Meaningful connection doesn’t depend on being in the same room. Meet with a psychologist online from a space that feels comfortable to you.</p><Link to="/online-therapy" className="inline-flex items-center gap-3 text-sm font-semibold border-b border-primary pb-2">Explore online therapy <ArrowUpRight size={17}/></Link></div><div className="relative min-h-[390px] md:min-h-[520px] bg-sage overflow-hidden flex items-center justify-center"><div className="absolute border border-primary/25 rounded-full size-[420px] md:size-[550px] translate-x-20 -translate-y-24"/><div className="absolute border border-primary/25 rounded-full size-[340px] md:size-[450px] translate-x-20 -translate-y-24"/><div className="absolute border border-primary/25 rounded-full size-[260px] md:size-[350px] translate-x-20 -translate-y-24"/><div className="relative bg-background w-[66%] max-w-[330px] aspect-[.82] p-8 flex flex-col justify-between shadow-xl"><span className="text-xs uppercase tracking-[.15em] text-sage-deep">A quieter moment</span><span className="font-display italic text-5xl md:text-6xl leading-[.9]">Wherever<br/>you are,<br/>we’re here.</span><span className="flex items-center justify-between border-t border-border pt-4 text-xs uppercase tracking-[.1em]">Online care <MoveUpRight size={17}/></span></div></div></div></section>
+    {/* How */}
+    <section className="bg-surface"><div className={`${wrap} py-20 md:py-28`}>
+      <Label n="03">How it works</Label><h2 className="display text-5xl md:text-7xl max-w-3xl">Four simple <em className="font-normal text-sage-deep">steps.</em></h2>
+      <ol className="mt-16 grid md:grid-cols-2 xl:grid-cols-4 gap-10">{steps.map((s, i) => <li key={s.title} className="number-rule pt-6"><div className="flex justify-between"><span className="text-xs text-muted-foreground">Step 0{i+1}</span><s.icon size={28} strokeWidth={1.2} className="text-sage-deep"/></div><h3 className="font-display text-3xl mt-12">{s.title}</h3><p className="text-sm text-muted-foreground leading-7 mt-3">{s.text}</p></li>)}</ol>
+    </div></section>
 
-    <section className="max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14 py-20 md:py-28"><SectionHeading label="The way we care" title={<>It starts with <em className="font-normal text-sage-deep">feeling safe.</em></>}/><div className="mt-16 grid md:grid-cols-3 gap-10 md:gap-16">{values.map((v,i)=><div key={v.title} className="number-rule pt-6"><div className="flex justify-between items-start"><span className="text-xs text-muted-foreground">0{i+1}</span><v.icon size={28} strokeWidth={1.2} className="text-sage-deep"/></div><h3 className="font-display text-3xl mt-16">{v.title}</h3><p className="text-sm text-muted-foreground leading-7 mt-4 max-w-xs">{v.description}</p></div>)}</div></section>
-    <ConsultationBand />
+    {/* Who */}
+    <section className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.9fr_1.1fr] gap-14 lg:gap-24`}>
+      <div><Label n="04">Who it's for</Label><h2 className="display text-5xl md:text-7xl">Who is this <em className="font-normal text-sage-deep">for?</em></h2><p className="mt-8 text-muted-foreground leading-8 max-w-md">If any of these feel familiar, this session is a gentle place to begin.</p></div>
+      <ul className="border-t border-border">{audience.map(a => <li key={a} className="flex gap-5 py-5 border-b border-border"><Check size={20} className="text-leaf shrink-0 mt-1"/><span className="text-lg">{a}</span></li>)}</ul>
+    </section>
+
+    {/* Is / isn't */}
+    <section className="bg-primary text-primary-foreground"><div className={`${wrap} py-20 md:py-28`}>
+      <p className="eyebrow text-sage mb-6">05 — Honest expectations</p><h2 className="display text-5xl md:text-7xl max-w-3xl">What this session is — <em className="font-normal text-sage">and isn't.</em></h2>
+      <div className="mt-16 grid md:grid-cols-2 gap-px bg-primary-foreground/15">
+        <div className="bg-primary p-8 md:p-10"><h3 className="eyebrow text-sage mb-6">It is</h3><ul className="space-y-4">{["A confidential space to be heard", "A professional view of what may help", "A clear, practical next step", "Pressure-free — you decide what follows"].map(t => <li key={t} className="flex gap-4"><Check size={18} className="text-sage mt-1 shrink-0"/>{t}</li>)}</ul></div>
+        <div className="bg-primary p-8 md:p-10"><h3 className="eyebrow text-primary-foreground/60 mb-6">It isn't</h3><ul className="space-y-4 text-primary-foreground/75">{["A full course of therapy", "Emergency or crisis care", "A commitment to ongoing sessions", "A place where you'll be judged"].map(t => <li key={t} className="flex gap-4"><X size={18} className="mt-1 shrink-0"/>{t}</li>)}</ul></div>
+      </div>
+      <p className="mt-8 text-sm text-primary-foreground/60">If you are in immediate danger, please contact your local emergency services.</p>
+    </div></section>
+
+    {/* Takeaway */}
+    <section className={`${wrap} py-20 md:py-28 grid lg:grid-cols-2 gap-14 lg:gap-24`}>
+      <div><Label n="06">Your takeaway</Label><h2 className="display text-5xl md:text-7xl">What you'll <em className="font-normal text-sage-deep">take away.</em></h2></div>
+      <ol className="space-y-8">{takeaways.map((t, i) => <li key={t} className="flex gap-6"><span className="font-display text-5xl text-sage-deep leading-none">{i+1}</span><p className="text-lg leading-8 pt-2">{t}</p></li>)}</ol>
+    </section>
+
+    {/* Dr */}
+    <section className="bg-lavender"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24 items-center`}>
+      <div className="relative aspect-[4/5] max-w-md bg-background flex items-center justify-center overflow-hidden"><div className="absolute size-[80%] rounded-full border border-sage-deep/30"/><div className="absolute size-[58%] rounded-full border border-sage-deep/30"/><div className="relative text-center"><p className="font-display text-8xl text-sage-deep">HQ</p><p className="eyebrow text-muted-foreground mt-4">Clinical Psychologist</p></div></div>
+      <div><Label n="07">Your psychologist</Label><h2 className="display text-5xl md:text-7xl">Meet Dr. Halima <em className="font-normal text-sage-deep">Sadia Qureshi.</em></h2>
+        <p className="mt-8 text-muted-foreground leading-8">Dr. Halima S. Qureshi is a Clinical Psychologist in Islamabad and the founder of Psychologists Hub, with over a decade of experience across clinical, educational and corporate settings.</p>
+        <p className="mt-5 text-muted-foreground leading-8">Specialising in trauma-focused recovery, she integrates evidence-based approaches — including CBT, NLP and Hypnotherapy — with advanced certifications in EMDR and IFS-informed practice.</p>
+        <div className="mt-8 flex flex-wrap gap-2">{["CBT", "EMDR", "IFS-informed", "NLP", "Hypnotherapy", "Trauma-focused"].map(t => <span key={t} className="text-xs uppercase tracking-[.12em] border border-foreground/25 px-3 py-2">{t}</span>)}</div></div>
+    </div></section>
+
+    {/* Why */}
+    <section className={`${wrap} py-20 md:py-28`}>
+      <Label n="08">Why begin here</Label><h2 className="display text-5xl md:text-7xl max-w-4xl">Why start with a <em className="font-normal text-sage-deep">Clarity Session?</em></h2>
+      <div className="mt-16 grid md:grid-cols-3 gap-10">{[
+        { t: "Less guesswork", d: "Avoid spending time and money on the wrong kind of support." },
+        { t: "Low commitment", d: "One conversation, no obligation to continue." },
+        { t: "Real results", d: "85% of our clients report reduced anxiety within six therapy sessions." },
+      ].map(v => <div key={v.t} className="number-rule pt-6"><h3 className="font-display text-3xl">{v.t}</h3><p className="text-sm text-muted-foreground leading-7 mt-4">{v.d}</p></div>)}</div>
+    </section>
+
+    {/* Details */}
+    <section className="bg-surface"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.9fr_1.1fr] gap-14 lg:gap-24`}>
+      <div><Label n="09">Session details</Label><h2 className="display text-5xl md:text-7xl">The <em className="font-normal text-sage-deep">details.</em></h2><div className="mt-10"><BookingLink>Book your session</BookingLink></div></div>
+      <dl className="grid sm:grid-cols-2 border-t border-l border-border">{[
+        { icon: Clock, k: "Format", v: "One-to-one session" },
+        { icon: Monitor, k: "Where", v: "In person in Islamabad, or online" },
+        { icon: Wallet, k: "Fee in Pakistan", v: "6,000 PKR" },
+        { icon: Globe, k: "Overseas fee", v: "$30 USD" },
+        { icon: ShieldCheck, k: "Privacy", v: "Strictly confidential" },
+        { icon: CalendarCheck, k: "Booking", v: "Choose a time on our online calendar" },
+      ].map(d => <div key={d.k} className="p-7 border-r border-b border-border bg-background"><d.icon size={22} strokeWidth={1.3} className="text-sage-deep"/><dt className="eyebrow text-muted-foreground mt-6">{d.k}</dt><dd className="font-display text-2xl mt-2">{d.v}</dd></div>)}</dl>
+    </div></section>
+
+    {/* Space */}
+    <section className={`${wrap} py-20 md:py-28 grid lg:grid-cols-2 gap-14 lg:gap-24 items-center`}>
+      <div><Label n="10">Our space</Label><h2 className="display text-5xl md:text-7xl">Our space — <em className="font-normal text-sage-deep">Psychologists Hub.</em></h2><p className="mt-8 text-muted-foreground leading-8">Our Islamabad office offers a professional, private setting for in-person sessions. Prefer home? Secure online sessions connect you with us from anywhere in Pakistan or abroad.</p></div>
+      <div className="bg-cream p-8 md:p-12"><MapPin size={28} strokeWidth={1.2} className="text-sage-deep"/><p className="font-display text-3xl mt-6 leading-tight">Office # M-1, Mezzanine Floor,<br/>Paris Business Center, Soan Garden,<br/>Islamabad, Pakistan</p><a href="https://maps.google.com/?q=Paris+Business+Center+Soan+Garden+Islamabad" target="_blank" rel="noreferrer" className="inline-block mt-8 text-sm font-semibold border-b border-primary pb-1">Open in Google Maps</a></div>
+    </section>
+
+    {/* FAQ */}
+    <section className="bg-cream"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24`}>
+      <div><Label n="11">FAQs</Label><h2 className="display text-5xl md:text-7xl">Questions, <em className="font-normal text-sage-deep">answered.</em></h2></div>
+      <Accordion type="single" collapsible className="border-t border-border">{faqs.map((f, i) => <AccordionItem key={f.q} value={`f${i}`}><AccordionTrigger className="font-display text-2xl text-left py-6 hover:no-underline">{f.q}</AccordionTrigger><AccordionContent className="text-muted-foreground leading-7 text-base">{f.a}</AccordionContent></AccordionItem>)}</Accordion>
+    </div></section>
+
+    {/* Final CTA */}
+    <section className="hero-field text-primary-foreground"><div className={`${wrap} py-24 md:py-32 relative z-10 text-center`}>
+      <p className="eyebrow text-sage mb-8">Your first step</p>
+      <h2 className="display text-[clamp(3.4rem,8vw,8rem)] max-w-5xl mx-auto">Start with <span className="hero-word">one conversation.</span></h2>
+      <p className="mt-8 text-primary-foreground/75 max-w-lg mx-auto leading-8">You don't have to have it all figured out. Book your Clarity Session and we'll find the way forward together.</p>
+      <div className="mt-10 flex justify-center"><BookingLink light>Book your Clarity Session</BookingLink></div>
+    </div></section>
   </main>;
 }

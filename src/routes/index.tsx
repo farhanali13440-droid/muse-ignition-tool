@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, Check, X, Compass, MessageCircle, Map, CalendarCheck, MapPin, Monitor, ShieldCheck, Clock, Wallet, Globe } from "lucide-react";
+import { ArrowDown, Check, X, Compass, MessageCircle, Map, CalendarCheck, MapPin, Monitor, ShieldCheck, Clock, Wallet, Globe, Phone } from "lucide-react";
 import { BookingLink } from "@/components/site-chrome";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -59,12 +59,22 @@ function Index() {
     <section className="hero-field text-primary-foreground min-h-[680px] flex items-center">
       <div className="hero-arc" aria-hidden="true"/>
       <div className={`${wrap} w-full py-24 relative z-10`}>
-        <div className="max-w-[980px] reveal">
-          <p className="eyebrow text-sage mb-9">First Step Clarity Session · Islamabad & online</p>
-          <h1 className="display text-[clamp(3.8rem,9vw,9.5rem)] leading-[.86]">Start with <span className="hero-word">one conversation.</span></h1>
-          <div className="mt-12 flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-16">
-            <p className="text-base leading-7 text-primary-foreground/75 max-w-[380px]">A calm, confidential session with Dr. Halima S. Qureshi to understand what you're facing — and leave knowing exactly what to do next.</p>
-            <BookingLink light>Book your Clarity Session</BookingLink>
+        <div className="max-w-[1120px] reveal">
+          <p className="eyebrow text-sage mb-9">First Step Clarity Session</p>
+          <h1 className="display text-[clamp(3.8rem,8vw,8rem)] leading-[.86]">Not sure what you <span className="hero-word">need right now?</span></h1>
+          <p className="mt-9 font-display text-2xl md:text-3xl text-primary-foreground/90 max-w-3xl">One conversation to understand what you're carrying — and what could help.</p>
+          <div className="mt-10 grid md:grid-cols-[1fr_auto] gap-8 md:items-end">
+            <p className="text-base leading-7 text-primary-foreground/75 max-w-[560px]">A private, 30-minute, one-to-one consultation with a Consultant Clinical Psychologist to help you understand your situation and identify a suitable next step.</p>
+            <div className="border border-primary-foreground/25 p-6 md:min-w-[330px] bg-primary-foreground/5">
+              <p className="eyebrow text-sage">First Step Clarity Session</p>
+              <p className="font-display text-5xl mt-3">PKR 900</p>
+              <p className="text-xs text-primary-foreground/65 mt-2">30 minutes · 1:1 · Private consultation</p>
+              <div className="grid grid-cols-2 gap-3 mt-6">
+                <Button asChild variant="editorialLight" size="spacious"><a href="tel:+923461555542"><Phone/> Call now</a></Button>
+                <Button asChild variant="editorialLight" size="spacious"><a href="https://wa.me/923461555542" target="_blank" rel="noreferrer"><MessageCircle/> WhatsApp</a></Button>
+              </div>
+              <p className="text-[11px] text-primary-foreground/55 mt-4">Prefer to talk? Call us. Prefer messaging? WhatsApp us.</p>
+            </div>
           </div>
         </div>
         <div className="mt-20 pt-5 border-t border-primary-foreground/20 flex flex-wrap gap-x-10 gap-y-3 text-[11px] uppercase tracking-[.15em] text-primary-foreground/60"><span>Confidential</span><span>Female-led practice</span><span>10+ years experience</span><span className="ml-auto flex gap-2 items-center">Scroll <ArrowDown size={14}/></span></div>
@@ -154,7 +164,7 @@ function Index() {
     {/* FAQ */}
     <section className="bg-cream"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24`}>
       <div><Label n="11">FAQs</Label><h2 className="display text-5xl md:text-7xl">Questions, <em className="font-normal text-sage-deep">answered.</em></h2></div>
-      <Accordion type="single" collapsible className="border-t border-border">{faqs.map((f, i) => <AccordionItem key={f.q} value={`f${i}`}><AccordionTrigger className="font-display text-2xl text-left py-6 hover:no-underline">{f.q}</AccordionTrigger><AccordionContent className="text-muted-foreground leading-7 text-base">{f.a}</AccordionContent></AccordionItem>)}</Accordion>
+      <div className="border-t border-border">{faqs.map((f) => <details key={f.q} className="group border-b border-border"><summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6 font-display text-2xl text-left"><span>{f.q}</span><span aria-hidden="true" className="text-sage-deep transition-transform group-open:rotate-45">+</span></summary><p className="pb-6 pr-10 text-muted-foreground leading-7">{f.a}</p></details>)}</div>
     </div></section>
 
     {/* Final CTA */}

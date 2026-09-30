@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project decisions
+- Keep the clinic website as separate TanStack content routes with a shared header/footer, so every section has its own navigable and indexable page.
+- Send appointment requests to the clinic's existing public Google Calendar booking page rather than collecting sensitive health details without a backend.

@@ -1,0 +1,3 @@
+- [x] Review clinic’s existing public content and booking details.
+- [ ] Build responsive Home, About, Services, Online Therapy, Corporate Services, Events, Contact, and Book Appointment pages.
+- [ ] Check navigation, booking, layout, and page metadata.

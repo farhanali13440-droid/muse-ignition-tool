@@ -1,0 +1,74 @@
+import { Link, useRouterState } from "@tanstack/react-router";
+import { ArrowUpRight, Instagram, Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
+export const bookingUrl = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ZyhQLcJqWKZrcrOjH0JbukyyXGnVTNbfAbDpIE3aRat2IZZIsgU_PR7AuRuT_n9XQ4nrRx8Oj";
+export const phone = "+92 346 1555542";
+export const email = "contact@psychologistshub.com.pk";
+
+export const navItems = [
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Online therapy", to: "/online-therapy" },
+  { label: "Corporate", to: "/corporate-services" },
+  { label: "Events", to: "/events" },
+  { label: "Contact", to: "/contact" },
+] as const;
+
+export function Logo({ light = false }: { light?: boolean }) {
+  return <Link to="/" aria-label="Psychologists Hub home" className={`inline-flex items-center gap-3 shrink-0 ${light ? "text-primary-foreground" : "text-primary"}`}>
+    <span className="relative flex size-9 items-center justify-center rounded-full border border-current">
+      <svg width="23" height="23" viewBox="0 0 23 23" fill="none" aria-hidden="true"><path d="M11.5 19V8m0 8c-4.4-1.4-6.5-4.2-6.2-8.8 3.7.1 5.8 2.2 6.2 5.6m0 .2c.4-3.4 2.4-5.5 6.2-5.8.3 4.6-1.8 7.4-6.2 8.8" stroke="currentColor" strokeWidth="1.15" strokeLinecap="round" strokeLinejoin="round"/></svg>
+    </span>
+    <span className="font-display text-[21px] leading-[.8] font-semibold">Psychologists<br/><span className="text-[18px] italic font-normal">Hub</span></span>
+  </Link>;
+}
+
+export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  return <header className="relative z-30 bg-background">
+    <div className="mx-auto max-w-[1500px] px-5 md:px-10 xl:px-14 h-[78px] md:h-[94px] flex items-center justify-between gap-6">
+      <Logo />
+      <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-7 xl:gap-9">
+        {navItems.map(item => <Link key={item.to} to={item.to} className={`text-[12px] font-medium transition-colors hover:text-sage-deep ${pathname === item.to ? "text-primary border-b border-primary pb-1" : "text-muted-foreground"}`}>{item.label}</Link>)}
+      </nav>
+      <div className="hidden lg:block"><Button asChild variant="editorial" size="spacious"><Link to="/book-appointment">Book an appointment <ArrowUpRight /></Link></Button></div>
+      <Button aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} variant="ghost" size="icon" className="lg:hidden" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
+    </div>
+    {open && <nav aria-label="Mobile navigation" className="lg:hidden absolute top-full left-0 right-0 bg-background border-t border-border shadow-lg px-5 py-5 flex flex-col gap-1">
+      {navItems.map(item => <Link key={item.to} to={item.to} onClick={() => setOpen(false)} className="py-3 border-b border-border text-sm">{item.label}</Link>)}
+      <Button asChild variant="editorial" size="spacious" className="mt-4"><Link to="/book-appointment" onClick={() => setOpen(false)}>Book an appointment <ArrowUpRight /></Link></Button>
+    </nav>}
+  </header>;
+}
+
+export function SiteFooter() {
+  return <footer className="bg-primary text-primary-foreground">
+    <div className="max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14 pt-16 md:pt-24 pb-8">
+      <div className="grid md:grid-cols-[1.3fr_.7fr_.8fr] gap-12 md:gap-14 pb-20 border-b border-primary-foreground/20">
+        <div><Logo light /><p className="mt-7 max-w-sm text-sm leading-7 text-primary-foreground/70">Compassionate, confidential care for the life you want to live. In Islamabad and wherever you are.</p><Button asChild variant="editorialLight" size="spacious" className="mt-8"><Link to="/book-appointment">Start your journey <ArrowUpRight /></Link></Button></div>
+        <div><p className="eyebrow text-sage mb-6">Explore</p><div className="grid grid-cols-2 md:grid-cols-1 gap-3">{navItems.map(item => <Link to={item.to} key={item.to} className="text-sm text-primary-foreground/75 hover:text-primary-foreground">{item.label}</Link>)}</div></div>
+        <div><p className="eyebrow text-sage mb-6">Get in touch</p><a className="block text-sm hover:underline" href="tel:+923461555542">{phone}</a><a className="block mt-3 text-sm break-all hover:underline" href={`mailto:${email}`}>{email}</a><p className="text-sm text-primary-foreground/65 leading-7 mt-6">Office # M-1, Mezzanine Floor,<br/>Paris Business Center, Soan Garden,<br/>Islamabad, Pakistan</p></div>
+      </div>
+      <div className="flex flex-col sm:flex-row justify-between gap-4 pt-7 text-xs text-primary-foreground/55"><p>© {new Date().getFullYear()} Psychologists Hub. All rights reserved.</p><p>Care begins with a conversation.</p></div>
+    </div>
+  </footer>;
+}
+
+export function BookingLink({ children = "Book an appointment", light = false, outline = false }: { children?: React.ReactNode; light?: boolean; outline?: boolean }) {
+  return <Button asChild size="spacious" variant={light ? "editorialLight" : outline ? "editorialOutline" : "editorial"}><Link to="/book-appointment">{children} <ArrowUpRight /></Link></Button>;
+}
+
+export function PageIntro({ label, title, description }: { label: string; title: string; description: string }) {
+  return <section className="bg-primary text-primary-foreground relative overflow-hidden"><div className="hero-arc"/><div className="max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14 py-20 md:py-28 relative z-10"><p className="eyebrow text-sage mb-8">{label}</p><h1 className="display text-[clamp(3.8rem,8vw,8rem)] max-w-[950px]">{title}</h1><p className="mt-8 max-w-xl text-primary-foreground/75 leading-8 text-base md:text-lg">{description}</p></div></section>;
+}
+
+export function SectionHeading({ label, title, aside }: { label: string; title: React.ReactNode; aside?: string }) {
+  return <div className="grid md:grid-cols-[1fr_2fr_1fr] gap-5 items-start"><p className="eyebrow text-sage-deep pt-3">{label}</p><h2 className="display text-5xl md:text-6xl xl:text-7xl">{title}</h2>{aside && <p className="text-sm leading-7 text-muted-foreground md:pt-3">{aside}</p>}</div>;
+}
+
+export function ConsultationBand() {
+  return <section className="bg-lavender"><div className="max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14 py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10"><div><p className="eyebrow text-sage-deep mb-6">A step toward feeling better</p><h2 className="display text-5xl md:text-7xl max-w-2xl">You don’t have to figure it out <em className="font-normal">alone.</em></h2></div><BookingLink>Let’s talk</BookingLink></div></section>;
+}

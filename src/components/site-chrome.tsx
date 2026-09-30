@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import logoAsset from "@/assets/psychologists-hub-logo.webp.asset.json";
 
 export const bookingUrl = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ZyhQLcJqWKZrcrOjH0JbukyyXGnVTNbfAbDpIE3aRat2IZZIsgU_PR7AuRuT_n9XQ4nrRx8Oj";
 export const phone = "+92 346 1555542";
@@ -17,11 +18,11 @@ export const navItems = [
 ] as const;
 
 export function Logo({ light = false }: { light?: boolean }) {
-  return <Link to="/" aria-label="Psychologists Hub home" className={`inline-flex items-center gap-3 shrink-0 ${light ? "text-primary-foreground" : "text-primary"}`}>
-    <span className="relative flex size-9 items-center justify-center rounded-full border border-current">
-      <svg width="23" height="23" viewBox="0 0 23 23" fill="none" aria-hidden="true"><path d="M11.5 19V8m0 8c-4.4-1.4-6.5-4.2-6.2-8.8 3.7.1 5.8 2.2 6.2 5.6m0 .2c.4-3.4 2.4-5.5 6.2-5.8.3 4.6-1.8 7.4-6.2 8.8" stroke="currentColor" strokeWidth="1.15" strokeLinecap="round" strokeLinejoin="round"/></svg>
+  return <Link to="/" aria-label="Psychologists Hub home" className={`inline-flex items-center gap-3 shrink-0 ${light ? "text-primary-foreground" : "text-foreground"}`}>
+    <span className={`flex items-center justify-center shrink-0 ${light ? "bg-background rounded-sm p-1.5 size-12" : "size-11"}`}>
+      <img src={logoAsset.url} alt="" width={44} height={40} className="w-full h-full object-contain" />
     </span>
-    <span className="font-display text-[21px] leading-[.8] font-semibold">Psychologists<br/><span className="text-[18px] italic font-normal">Hub</span></span>
+    <span className="font-display text-[21px] leading-[.8] font-semibold">Psychologists<br/><span className="text-[18px] italic font-normal text-leaf">Hub</span></span>
   </Link>;
 }
 

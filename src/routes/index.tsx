@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Check, MessageCircle, Compass, Map, Phone, ShieldCheck, Clock, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroPhoto from "@/assets/psychologists-hub-hero.png.asset.json";
+import heroPhoto from "@/assets/psychologists-hub-hero-2.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [

@@ -163,17 +163,20 @@ function Index() {
     </div></section>
 
     {/* Trust */}
-    <section className="bg-lavender"><div className={`${wrap} py-20 md:py-28`}>
-      <div className="max-w-3xl"><Label n="04">Who am I talking to?</Label><h2 className="display text-5xl md:text-7xl">Meet Dr. Halima <em className="font-normal text-sage-deep">Sadia Qureshi.</em></h2>
+    <section className="bg-lavender"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[1.05fr_.95fr] gap-14 lg:gap-24 items-center`}>
+      <div>
+        <Label n="04">Who am I talking to?</Label>
+        <h2 className="display text-5xl md:text-7xl">Meet Dr. Halima <em className="font-normal text-sage-deep">Sadia Qureshi.</em></h2>
         <p className="mt-5 font-display text-2xl">Consultant Clinical Psychologist</p>
         <p className="text-sm text-muted-foreground">Psychologists Hub — Islamabad</p>
         <p className="mt-7 text-muted-foreground leading-8 max-w-xl">Dr. Halima Sadia Qureshi is a Consultant Clinical Psychologist at Psychologists Hub.</p>
-        <p className="mt-4 text-muted-foreground leading-8 max-w-xl">Psychologists Hub provides psychological assessment and therapy services, including trauma therapy, EMDR, CBT, anxiety and mood-related support, stress management and online/in-clinic sessions.</p></div>
-      <div className="mt-12 w-full max-w-md">
-        <div className="relative aspect-[4/5] bg-background overflow-hidden"><img src={drPhoto.url} alt="Dr. Halima Sadia Qureshi, Consultant Clinical Psychologist at Psychologists Hub Islamabad" className="absolute inset-0 w-full h-full object-cover"/></div>
-        <p className="mt-4 text-center text-[11px] uppercase tracking-[.18em] text-muted-foreground">Professional • Private • 1:1</p>
+        <p className="mt-4 text-muted-foreground leading-8 max-w-xl">Psychologists Hub provides psychological assessment and therapy services, including trauma therapy, EMDR, CBT, anxiety and mood-related support, stress management and online/in-clinic sessions.</p>
+        <div className="mt-8"><ContactButtons/></div>
       </div>
-      <div className="mt-8"><ContactButtons/></div>
+      <figure className="w-full max-w-md mx-auto lg:ml-auto">
+        <div className="relative aspect-[4/5] bg-background overflow-hidden"><img src={drPhoto.url} alt="Dr. Halima Sadia Qureshi, Consultant Clinical Psychologist at Psychologists Hub Islamabad" className="absolute inset-0 w-full h-full object-cover"/></div>
+        <figcaption className="mt-4 text-center text-[11px] uppercase tracking-[.18em] text-muted-foreground">Professional • Private • 1:1</figcaption>
+      </figure>
     </div></section>
 
     {/* Objections */}

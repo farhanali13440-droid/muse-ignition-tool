@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Check, MessageCircle, Compass, Map, Phone, ShieldCheck, Clock, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroPhoto from "@/assets/psychologists-hub-hero-2.png.asset.json";
+import drPhoto from "@/assets/dr-halima-qureshi.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -164,7 +165,7 @@ function Index() {
     {/* Trust */}
     <section className="bg-lavender"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24 items-center`}>
       <div className="w-full max-w-md">
-        <div className="relative aspect-[4/5] bg-background flex items-center justify-center overflow-hidden"><div className="absolute size-[80%] rounded-full border border-sage-deep/30"/><div className="absolute size-[58%] rounded-full border border-sage-deep/30"/><div className="relative text-center"><p className="font-display text-8xl text-sage-deep">HQ</p><p className="eyebrow text-muted-foreground mt-4">Dr. Halima Sadia Qureshi</p></div></div>
+        <div className="relative aspect-[4/5] bg-background overflow-hidden"><img src={drPhoto.url} alt="Dr. Halima Sadia Qureshi, Consultant Clinical Psychologist at Psychologists Hub Islamabad" className="absolute inset-0 w-full h-full object-cover"/></div>
         <p className="mt-4 text-center text-[11px] uppercase tracking-[.18em] text-muted-foreground">Professional • Private • 1:1</p>
       </div>
       <div><Label n="04">Who am I talking to?</Label><h2 className="display text-5xl md:text-7xl">Meet Dr. Halima <em className="font-normal text-sage-deep">Sadia Qureshi.</em></h2>

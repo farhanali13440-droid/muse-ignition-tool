@@ -43,31 +43,61 @@ const objections = [
   { q: "Who will I be speaking with?", a: "Dr. Halima S. Qureshi, Clinical Psychologist and founder of Psychologists Hub." },
 ];
 
+function ConversationVisual() {
+  return <figure className="relative w-full max-w-[520px] mx-auto lg:ml-auto" aria-label="Illustration of a calm, friendly conversation between a psychologist and a client">
+    <div className="relative aspect-[4/5] bg-primary-foreground/[.06] border border-primary-foreground/15 overflow-hidden">
+      <svg viewBox="0 0 400 500" className="absolute inset-0 w-full h-full" role="img" aria-hidden="true">
+        {/* window light */}
+        <rect x="250" y="40" width="110" height="150" fill="var(--color-sage)" opacity=".18"/>
+        <line x1="305" y1="40" x2="305" y2="190" stroke="currentColor" strokeOpacity=".2"/>
+        {/* plant */}
+        <path d="M200 330 C190 280 170 260 150 250 M200 330 C205 280 225 255 250 245 M200 330 C200 290 200 270 200 240" stroke="var(--color-sage)" strokeWidth="3" fill="none" opacity=".8"/>
+        <rect x="185" y="325" width="30" height="40" rx="3" fill="currentColor" opacity=".25"/>
+        {/* client (left) */}
+        <rect x="30" y="300" width="130" height="120" rx="18" fill="currentColor" opacity=".12"/>
+        <circle cx="95" cy="200" r="30" fill="currentColor" opacity=".85"/>
+        <path d="M50 330 C50 260 70 240 95 240 C125 240 145 265 140 330 Z" fill="var(--color-sage)" opacity=".9"/>
+        {/* psychologist (right) */}
+        <rect x="240" y="300" width="130" height="120" rx="18" fill="currentColor" opacity=".12"/>
+        <path d="M275 205 C275 170 335 170 335 205 L338 245 L272 245 Z" fill="currentColor" opacity=".55"/>
+        <circle cx="305" cy="200" r="28" fill="currentColor" opacity=".85"/>
+        <path d="M260 330 C255 265 275 240 305 240 C330 240 352 260 350 330 Z" fill="currentColor" opacity=".35"/>
+        <rect x="262" y="290" width="40" height="28" rx="2" fill="currentColor" opacity=".6"/>
+        {/* speech */}
+        <path d="M130 120 h80 a14 14 0 0 1 14 14 v20 a14 14 0 0 1 -14 14 h-60 l-14 14 v-14 h-6 a14 14 0 0 1 -14 -14 v-20 a14 14 0 0 1 14 -14z" fill="currentColor" opacity=".12"/>
+        <circle cx="152" cy="144" r="4" fill="currentColor" opacity=".7"/><circle cx="170" cy="144" r="4" fill="currentColor" opacity=".7"/><circle cx="188" cy="144" r="4" fill="currentColor" opacity=".7"/>
+        <line x1="0" y1="420" x2="400" y2="420" stroke="currentColor" strokeOpacity=".2"/>
+      </svg>
+      <figcaption className="absolute left-5 right-5 bottom-5 bg-background text-foreground p-5 shadow-lg">
+        <p className="font-display text-2xl italic leading-snug">“Take your time. Tell me what's been on your mind.”</p>
+        <p className="mt-2 text-xs text-muted-foreground flex items-center gap-2"><ShieldCheck size={14} className="text-sage-deep"/>Private, one-to-one, judgement-free</p>
+      </figcaption>
+    </div>
+  </figure>;
+}
+
 function Index() {
   return <main>
     {/* Hero */}
     <section className="hero-field text-primary-foreground min-h-[680px] flex items-center">
       <div className="hero-arc" aria-hidden="true"/>
-      <div className={`${wrap} w-full py-24 relative z-10`}>
-        <div className="max-w-[1120px] reveal">
-          <p className="eyebrow text-sage mb-9">First Step Clarity Session</p>
-          <h1 className="display text-[clamp(3.8rem,8vw,8rem)] leading-[.86]">Not sure what you <span className="hero-word">need right now?</span></h1>
-          <p className="mt-9 font-display text-2xl md:text-3xl text-primary-foreground/90 max-w-3xl">One conversation to understand what you're carrying — and what could help.</p>
-          <div className="mt-10 grid md:grid-cols-[1fr_auto] gap-8 md:items-end">
-            <p className="text-base leading-7 text-primary-foreground/75 max-w-[560px]">A private, 30-minute, one-to-one consultation with a Consultant Clinical Psychologist to help you understand your situation and identify a suitable next step.</p>
-            <div className="border border-primary-foreground/25 p-6 md:min-w-[330px] bg-primary-foreground/5">
-              <p className="eyebrow text-sage">First Step Clarity Session</p>
-              <p className="font-display text-5xl mt-3">PKR 900</p>
-              <p className="text-xs text-primary-foreground/65 mt-2">30 minutes · 1:1 · Private consultation</p>
-              <div className="grid grid-cols-2 gap-3 mt-6">
-                <Button asChild variant="editorialLight" size="spacious"><a href="tel:+923461555542"><Phone/> Call now</a></Button>
-                <Button asChild variant="editorialLight" size="spacious"><a href="https://wa.me/923461555542" target="_blank" rel="noreferrer"><MessageCircle/> WhatsApp</a></Button>
-              </div>
-              <p className="text-[11px] text-primary-foreground/55 mt-4">Prefer to talk? Call us. Prefer messaging? WhatsApp us.</p>
-            </div>
+      <div className={`${wrap} w-full py-20 md:py-24 relative z-10 grid lg:grid-cols-[1.1fr_.9fr] gap-14 items-center`}>
+        <div className="reveal">
+          <p className="eyebrow text-sage mb-7">First Step Clarity Session</p>
+          <h1 className="display text-[clamp(3.2rem,6.5vw,6.5rem)] leading-[.9]">Not sure what you <span className="hero-word">need right now?</span></h1>
+          <p className="mt-7 font-display text-2xl md:text-3xl text-primary-foreground/90 max-w-2xl">One conversation to understand what you're carrying — and what could help.</p>
+          <p className="mt-5 text-base leading-7 text-primary-foreground/75 max-w-[540px]">A private 30-minute 1:1 session with a Consultant Clinical Psychologist.</p>
+          <div className="mt-8 inline-flex items-baseline gap-4 border border-primary-foreground/25 bg-primary-foreground/5 px-6 py-4">
+            <span className="text-xs uppercase tracking-[.15em] text-primary-foreground/70">30-Minute 1:1 Session</span>
+            <span className="font-display text-4xl">PKR 900</span>
           </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild variant="editorialLight" size="spacious"><a href="tel:+923461555542"><Phone/> Call to book</a></Button>
+            <Button asChild variant="editorialLight" size="spacious"><a href="https://wa.me/923461555542" target="_blank" rel="noreferrer"><MessageCircle/> WhatsApp to book</a></Button>
+          </div>
+          <p className="mt-5 text-[11px] uppercase tracking-[.18em] text-primary-foreground/60">Private • 1:1 • 30 Minutes</p>
         </div>
-        <div className="mt-20 pt-5 border-t border-primary-foreground/20 flex flex-wrap gap-x-10 gap-y-3 text-[11px] uppercase tracking-[.15em] text-primary-foreground/60"><span>Confidential</span><span>Female-led practice</span><span>10+ years experience</span><span className="ml-auto flex gap-2 items-center">Scroll <ArrowDown size={14}/></span></div>
+        <ConversationVisual/>
       </div>
     </section>
 

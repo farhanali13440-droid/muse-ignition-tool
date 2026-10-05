@@ -44,7 +44,6 @@ const objections = [
 ];
 
 function Index() {
-function Index() {
   return <main>
     {/* Hero */}
     <section className="hero-field text-primary-foreground min-h-[680px] flex items-center">

@@ -35,12 +35,10 @@ const flow = [
 ];
 
 const objections = [
-  { q: "What if my problem isn't “serious enough”?", a: "There's no threshold. If something is on your mind, it's worth talking about — that's what this session is for." },
-  { q: "Do I need to know what's wrong before booking?", a: "Not at all. You only need to come as you are. Understanding it is part of the session." },
-  { q: "Will I be pushed into ongoing therapy?", a: "No. There's no obligation. You'll get a recommendation, and you decide if and when to continue." },
-  { q: "Is it confidential?", a: "Yes. Everything you share is strictly private and never shared without your consent." },
-  { q: "Can I attend online?", a: "Yes. Sessions are available in person at our Islamabad office or securely online, wherever you are." },
-  { q: "Who will I be speaking with?", a: "Dr. Halima S. Qureshi, Clinical Psychologist and founder of Psychologists Hub." },
+  { q: "“I don't even know if I need therapy.”", a: "That's exactly why this session exists." },
+  { q: "“What if I don't know what to talk about?”", a: "You don't need to prepare a diagnosis or know exactly what to say. Start with what's currently on your mind." },
+  { q: "“Do I have to continue therapy afterward?”", a: "No. The session is designed to help you understand possible next steps." },
+  { q: "“Is this a screening test?”", a: "No. It's a general consultation focused on understanding your situation and possible direction." },
 ];
 
 function ConversationVisual() {
@@ -199,7 +197,7 @@ function Index() {
 
     {/* Objections */}
     <section className="bg-cream"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24`}>
-      <div><Label n="05">Still not sure?</Label><h2 className="display text-5xl md:text-7xl">Still <em className="font-normal text-sage-deep">not sure?</em></h2><p className="mt-8 text-muted-foreground leading-8 max-w-md">That's completely normal. Here are the questions people ask most before booking.</p></div>
+      <div><Label n="05">Common questions</Label><h2 className="display text-5xl md:text-6xl">Still not sure if this is <em className="font-normal text-sage-deep">for you?</em></h2></div>
       <div className="border-t border-border">{objections.map((f) => <details key={f.q} className="group border-b border-border"><summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6 font-display text-2xl text-left"><span>{f.q}</span><span aria-hidden="true" className="text-sage-deep transition-transform group-open:rotate-45">+</span></summary><p className="pb-6 pr-10 text-muted-foreground leading-7">{f.a}</p></details>)}</div>
     </div></section>
 

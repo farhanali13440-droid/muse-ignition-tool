@@ -82,11 +82,28 @@ function Index() {
     </section>
 
     {/* Problem */}
-    <section className="bg-cream"><div className={`${wrap} py-20 md:py-28 grid md:grid-cols-[.8fr_1.2fr] gap-10 md:gap-24`}>
-      <Label n="01">The problem</Label>
-      <div><h2 className="display text-5xl md:text-7xl">Not sure <em className="font-normal text-sage-deep">where to start?</em></h2>
-        <p className="mt-8 text-muted-foreground leading-8 max-w-2xl">Maybe you've felt off for a while. Maybe something happened, or maybe nothing did — and that's what's confusing. Therapy, counselling, assessments, different approaches… it's hard to know what you need, and easy to keep putting it off.</p>
-        <p className="mt-5 font-display text-3xl italic">You don't need all the answers to take the first step.</p></div>
+    <section className="bg-cream"><div className={`${wrap} py-20 md:py-28`}>
+      <div className="grid lg:grid-cols-[1.15fr_.85fr] gap-14 lg:gap-24 items-center">
+        <div>
+          <Label n="01">Where to start</Label>
+          <h2 className="display text-5xl md:text-7xl">Sometimes, you know something isn't right — <em className="font-normal text-sage-deep">but you don't know where to start.</em></h2>
+          <p className="mt-8 text-muted-foreground leading-8 max-w-2xl">You may have something on your mind that you haven't been able to make sense of. Maybe you've been thinking about talking to someone, but you're not sure whether you need therapy. Maybe you simply want to understand what's going on before deciding what to do next.</p>
+          <p className="mt-5 font-display text-3xl italic">You don't have to figure it all out alone.</p>
+          <p className="mt-5 text-muted-foreground leading-8 max-w-2xl">The First Step Clarity Session gives you a private space to talk about what's going on and understand what kind of support may fit your situation.</p>
+        </div>
+        <div aria-hidden="true" className="relative aspect-square max-w-md w-full mx-auto bg-background flex items-center justify-center overflow-hidden">
+          <div className="absolute size-[82%] rounded-full border border-sage-deep/25"/>
+          <div className="absolute size-[60%] rounded-full border border-sage-deep/25"/>
+          <div className="absolute size-[38%] rounded-full bg-lavender"/>
+          <span className="relative font-display text-9xl italic text-sage-deep">?</span>
+          <p className="absolute bottom-6 left-0 right-0 text-center font-display italic text-xl text-muted-foreground">“I don't know where to start.”</p>
+        </div>
+      </div>
+      <div className="mt-16 grid md:grid-cols-3 gap-10">{[
+        { t: "Not sure if you need therapy?", d: "Start with a conversation instead of trying to figure everything out yourself." },
+        { t: "Not sure what kind of support fits?", d: "Talk through your situation with a professional." },
+        { t: "Not sure what to do next?", d: "Leave with a clearer direction." },
+      ].map(p => <div key={p.t} className="number-rule pt-6"><h3 className="font-display text-3xl">{p.t}</h3><p className="text-sm text-muted-foreground leading-7 mt-3">{p.d}</p></div>)}</div>
     </div></section>
 
     {/* What */}

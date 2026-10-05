@@ -202,16 +202,32 @@ function Index() {
     </div></section>
 
     {/* Final offer */}
-    <section className="hero-field text-primary-foreground"><div className={`${wrap} py-24 md:py-32 relative z-10 grid lg:grid-cols-[1.2fr_.8fr] gap-14 items-center`}>
-      <div><p className="eyebrow text-sage mb-8">Your first step</p>
-        <h2 className="display text-[clamp(3.2rem,7vw,7rem)]">Call or WhatsApp <span className="hero-word">to book.</span></h2>
-        <p className="mt-8 text-primary-foreground/75 max-w-lg leading-8">You don't have to have it all figured out. Reach out and we'll find a time that works for you.</p></div>
-      <div className="border border-primary-foreground/25 p-8 bg-primary-foreground/5">
-        <p className="eyebrow text-sage">First Step Clarity Session</p>
-        <p className="font-display text-6xl mt-3">PKR 900</p>
-        <ul className="mt-5 space-y-2 text-sm text-primary-foreground/75">{["30 minutes, one-to-one", "In person in Islamabad or online", "Strictly confidential", "No obligation to continue"].map(t => <li key={t} className="flex gap-3"><Check size={16} className="text-sage mt-0.5 shrink-0"/>{t}</li>)}</ul>
-        <div className="mt-7"><ContactButtons light/></div>
-        <p className="text-xs text-primary-foreground/55 mt-4">+92 346 1555542</p>
+    <section className="hero-field text-primary-foreground"><div className={`${wrap} py-24 md:py-32 relative z-10`}>
+      <div className="text-center max-w-3xl mx-auto">
+        <p className="eyebrow text-sage mb-6">First Step Clarity Session</p>
+        <h2 className="display text-[clamp(3rem,6.5vw,6.5rem)]">Start with <span className="hero-word">one conversation.</span></h2>
+        <p className="mt-6 text-sm uppercase tracking-[.18em] text-primary-foreground/80">30 Minutes • 1:1 • PKR 900</p>
+        <p className="mt-6 font-display text-2xl md:text-3xl text-primary-foreground/90">One conversation to understand what you're carrying — and what could help.</p>
+      </div>
+      <p className="eyebrow text-sage text-center mt-16 mb-6">Choose how you'd like to book</p>
+      <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 items-center max-w-4xl mx-auto">
+        <div className="border border-primary-foreground/25 bg-primary-foreground/5 p-8 text-center">
+          <Phone className="mx-auto text-sage" size={28} strokeWidth={1.4}/>
+          <h3 className="font-display text-3xl mt-3">Call now</h3>
+          <p className="text-sm text-primary-foreground/70 mt-2">Speak directly with Psychologists Hub</p>
+          <Button asChild variant="editorialLight" size="spacious" className="mt-6"><a href="tel:+923461555542"><Phone/> Call to book</a></Button>
+        </div>
+        <span className="eyebrow text-primary-foreground/60 text-center">or</span>
+        <div className="border border-primary-foreground/25 bg-primary-foreground/5 p-8 text-center">
+          <MessageCircle className="mx-auto text-sage" size={28} strokeWidth={1.4}/>
+          <h3 className="font-display text-3xl mt-3">WhatsApp</h3>
+          <p className="text-sm text-primary-foreground/70 mt-2">Message us and schedule your session</p>
+          <Button asChild variant="editorialLight" size="spacious" className="mt-6"><a href="https://wa.me/923461555542" target="_blank" rel="noreferrer"><MessageCircle/> Book via WhatsApp</a></Button>
+        </div>
+      </div>
+      <div className="mt-14 text-center text-sm text-primary-foreground/75">
+        <p className="eyebrow text-sage mb-3">Contact</p>
+        <p className="flex flex-wrap justify-center gap-x-8 gap-y-2"><a href="tel:+923315579476" className="hover:text-sage">+92-331-5579476</a><a href="tel:+923461555542" className="hover:text-sage">+92-346-1555542</a></p>
       </div>
     </div></section>
   </main>;

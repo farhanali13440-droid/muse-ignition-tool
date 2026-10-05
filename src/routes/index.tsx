@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Check, MessageCircle, Compass, Map, Phone, ShieldCheck, Clock, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroPhoto from "@/assets/psychologists-hub-hero.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -42,30 +43,9 @@ const objections = [
 ];
 
 function ConversationVisual() {
-  return <figure className="relative w-full max-w-[520px] mx-auto lg:ml-auto" aria-label="Illustration of a calm, friendly conversation between a psychologist and a client">
-    <div className="relative aspect-[4/5] bg-primary-foreground/[.06] border border-primary-foreground/15 overflow-hidden">
-      <svg viewBox="0 0 400 500" className="absolute inset-0 w-full h-full" role="img" aria-hidden="true">
-        {/* window light */}
-        <rect x="250" y="40" width="110" height="150" fill="var(--color-sage)" opacity=".18"/>
-        <line x1="305" y1="40" x2="305" y2="190" stroke="currentColor" strokeOpacity=".2"/>
-        {/* plant */}
-        <path d="M200 330 C190 280 170 260 150 250 M200 330 C205 280 225 255 250 245 M200 330 C200 290 200 270 200 240" stroke="var(--color-sage)" strokeWidth="3" fill="none" opacity=".8"/>
-        <rect x="185" y="325" width="30" height="40" rx="3" fill="currentColor" opacity=".25"/>
-        {/* client (left) */}
-        <rect x="30" y="300" width="130" height="120" rx="18" fill="currentColor" opacity=".12"/>
-        <circle cx="95" cy="200" r="30" fill="currentColor" opacity=".85"/>
-        <path d="M50 330 C50 260 70 240 95 240 C125 240 145 265 140 330 Z" fill="var(--color-sage)" opacity=".9"/>
-        {/* psychologist (right) */}
-        <rect x="240" y="300" width="130" height="120" rx="18" fill="currentColor" opacity=".12"/>
-        <path d="M275 205 C275 170 335 170 335 205 L338 245 L272 245 Z" fill="currentColor" opacity=".55"/>
-        <circle cx="305" cy="200" r="28" fill="currentColor" opacity=".85"/>
-        <path d="M260 330 C255 265 275 240 305 240 C330 240 352 260 350 330 Z" fill="currentColor" opacity=".35"/>
-        <rect x="262" y="290" width="40" height="28" rx="2" fill="currentColor" opacity=".6"/>
-        {/* speech */}
-        <path d="M130 120 h80 a14 14 0 0 1 14 14 v20 a14 14 0 0 1 -14 14 h-60 l-14 14 v-14 h-6 a14 14 0 0 1 -14 -14 v-20 a14 14 0 0 1 14 -14z" fill="currentColor" opacity=".12"/>
-        <circle cx="152" cy="144" r="4" fill="currentColor" opacity=".7"/><circle cx="170" cy="144" r="4" fill="currentColor" opacity=".7"/><circle cx="188" cy="144" r="4" fill="currentColor" opacity=".7"/>
-        <line x1="0" y1="420" x2="400" y2="420" stroke="currentColor" strokeOpacity=".2"/>
-      </svg>
+  return <figure className="relative w-full max-w-[520px] mx-auto lg:ml-auto">
+    <div className="relative aspect-[4/5] border border-primary-foreground/15 overflow-hidden">
+      <img src={heroPhoto.url} alt="A psychologist listening warmly to a client during a one-to-one session in a bright, calm room" className="absolute inset-0 w-full h-full object-cover"/>
       <figcaption className="absolute left-5 right-5 bottom-5 bg-background text-foreground p-5 shadow-lg">
         <p className="font-display text-2xl italic leading-snug">“Take your time. Tell me what's been on your mind.”</p>
         <p className="mt-2 text-xs text-muted-foreground flex items-center gap-2"><ShieldCheck size={14} className="text-sage-deep"/>Private, one-to-one, judgement-free</p>

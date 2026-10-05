@@ -106,18 +106,38 @@ function Index() {
     <section className="bg-cream"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[1.15fr_.85fr] gap-14 lg:gap-24 items-center`}>
       <div>
         <Label n="01">You're not alone in this</Label>
-        <h2 className="display text-5xl md:text-7xl">You don't have to know <em className="font-normal text-sage-deep">what's wrong.</em></h2>
-        <p className="mt-8 text-muted-foreground leading-8 max-w-2xl">Maybe you've felt off for a while. Maybe you've thought about talking to someone, but you're not sure whether you need therapy — or what kind of support would even fit.</p>
-        <p className="mt-5 text-muted-foreground leading-8 max-w-2xl">What you want is simple: to understand what's going on, and to know what to do next. That's exactly where the Clarity Session begins.</p>
-        <p className="mt-6 font-display text-3xl italic">You just need to start the conversation.</p>
+        <h2 className="display text-5xl md:text-6xl">You don't have to know what's wrong <em className="font-normal text-sage-deep">before you ask for help.</em></h2>
+        <p className="mt-8 text-muted-foreground leading-8 max-w-2xl">Maybe you're feeling stuck. Maybe something has been bothering you. Maybe you've thought about therapy but aren't sure if you actually need it.</p>
+        <p className="mt-5 text-muted-foreground leading-8 max-w-2xl">You don't have to diagnose yourself first.</p>
+        <p className="mt-4 font-display text-3xl italic">Start with a conversation.</p>
+        <ul className="mt-10 grid sm:grid-cols-3 gap-6">
+          {[
+            { icon: MessageCircle, t: "Talk it through", d: "Share what's currently on your mind." },
+            { icon: Compass, t: "Get clarity", d: "Understand what kind of support may fit." },
+            { icon: Map, t: "Know your next step", d: "Leave with a personalized direction." },
+          ].map(p => <li key={p.t} className="border-t border-sage-deep/30 pt-4">
+            <p.icon size={22} strokeWidth={1.4} className="text-sage-deep"/>
+            <h3 className="font-display text-2xl mt-3">{p.t}</h3>
+            <p className="text-sm text-muted-foreground leading-6 mt-1">{p.d}</p>
+          </li>)}
+        </ul>
+        <Button asChild variant="editorial" size="spacious" className="mt-10"><a href="https://wa.me/923461555542" target="_blank" rel="noreferrer"><MessageCircle/> Book via WhatsApp</a></Button>
       </div>
-      <div aria-hidden="true" className="relative aspect-square max-w-md w-full mx-auto bg-background flex items-center justify-center overflow-hidden">
-        <div className="absolute size-[82%] rounded-full border border-sage-deep/25"/>
-        <div className="absolute size-[60%] rounded-full border border-sage-deep/25"/>
-        <div className="absolute size-[38%] rounded-full bg-lavender"/>
-        <span className="relative font-display text-9xl italic text-sage-deep">?</span>
-        <p className="absolute bottom-6 left-0 right-0 text-center font-display italic text-xl text-muted-foreground">“I don't know where to start.”</p>
-      </div>
+      <figure className="relative aspect-square max-w-md w-full mx-auto bg-background overflow-hidden" aria-label="Illustration of a person sitting quietly, thinking">
+        <svg viewBox="0 0 400 400" className="absolute inset-0 w-full h-full text-foreground" aria-hidden="true">
+          <circle cx="290" cy="110" r="60" fill="var(--color-sage)" opacity=".2"/>
+          <path d="M120 120 q20 -25 45 -10 M260 70 q15 -20 35 -5" stroke="currentColor" strokeOpacity=".25" strokeWidth="2" fill="none"/>
+          <rect x="70" y="250" width="200" height="70" rx="16" fill="currentColor" opacity=".1"/>
+          <circle cx="165" cy="150" r="28" fill="currentColor" opacity=".85"/>
+          <path d="M125 260 C120 200 140 185 165 185 C195 185 210 205 205 260 Z" fill="var(--color-sage)" opacity=".9"/>
+          <path d="M185 205 C205 200 205 175 190 165" stroke="var(--color-sage)" strokeWidth="12" strokeLinecap="round" fill="none"/>
+          <rect x="280" y="230" width="34" height="34" rx="4" fill="currentColor" opacity=".25"/>
+          <path d="M290 230 q5 -12 18 -10" stroke="currentColor" strokeOpacity=".4" strokeWidth="2" fill="none"/>
+          <line x1="0" y1="320" x2="400" y2="320" stroke="currentColor" strokeOpacity=".2"/>
+          <circle cx="215" cy="115" r="4" fill="currentColor" opacity=".4"/><circle cx="230" cy="98" r="6" fill="currentColor" opacity=".35"/><circle cx="250" cy="80" r="9" fill="currentColor" opacity=".3"/>
+        </svg>
+        <figcaption className="absolute bottom-6 left-0 right-0 text-center font-display italic text-xl text-muted-foreground">“I'm not sure what I need.”</figcaption>
+      </figure>
     </div></section>
 
     {/* What happens */}

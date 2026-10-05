@@ -167,12 +167,19 @@ function Index() {
     </div></section>
 
     {/* New mechanism */}
-    <section className="bg-primary text-primary-foreground"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.9fr_1.1fr] gap-14 lg:gap-24`}>
-      <div><p className="eyebrow text-sage mb-6">03 — A different first step</p><h2 className="display text-5xl md:text-7xl">Why start with a <em className="font-normal text-sage">Clarity Session?</em></h2>
-        <p className="mt-8 text-primary-foreground/75 leading-8 max-w-md">Most people either keep putting support off, or jump into something that isn't the right fit. The Clarity Session is the step in between: understanding first, decisions after.</p></div>
-      <div className="grid sm:grid-cols-2 gap-px bg-primary-foreground/15 self-start">
-        <div className="bg-primary p-8"><h3 className="eyebrow text-primary-foreground/60 mb-5">The usual way</h3><ul className="space-y-3 text-primary-foreground/70">{["Guessing what kind of help you need", "Committing before you understand", "Waiting until things feel worse"].map(t => <li key={t}>— {t}</li>)}</ul></div>
-        <div className="bg-primary p-8"><h3 className="eyebrow text-sage mb-5">The Clarity Session</h3><ul className="space-y-3">{["Understand your situation first", "Low commitment — one conversation", "A clear, professional next step"].map(t => <li key={t} className="flex gap-3"><Check size={18} className="text-sage mt-1 shrink-0"/>{t}</li>)}</ul></div>
+    <section className="bg-primary text-primary-foreground"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[1fr_1fr] gap-14 lg:gap-24 items-center`}>
+      <div><p className="eyebrow text-sage mb-6">03 — Why this offer?</p><h2 className="display text-5xl md:text-6xl">You don't have to commit to long-term therapy to <em className="font-normal text-sage">take the first step.</em></h2>
+        <p className="mt-8 text-primary-foreground/75 leading-8 max-w-md">The First Step Clarity Session is designed for people who aren't sure what kind of support they need.</p>
+        <p className="mt-4 text-primary-foreground/75 leading-8 max-w-md">Instead of trying to figure it all out yourself, you can start with one focused conversation.</p></div>
+      <div className="w-full max-w-md mx-auto lg:ml-auto">
+        <p className="eyebrow text-primary-foreground/60 mb-4">Instead of</p>
+        <ul className="space-y-3">{["Do I need therapy?", "What's wrong with me?", "Who should I see?", "Where do I start?"].map(q =>
+          <li key={q} className="border border-primary-foreground/20 px-5 py-3 font-display text-xl italic text-primary-foreground/70">“{q}”</li>)}</ul>
+        <div className="flex flex-col items-center my-5 text-sage"><ArrowDown size={28} strokeWidth={1.4}/><span className="eyebrow mt-2">Start here</span></div>
+        <div className="bg-primary-foreground text-primary p-7 text-center">
+          <Clock size={24} className="mx-auto text-sage-deep"/>
+          <p className="font-display text-3xl mt-3">30-Minute Clarity Session</p>
+        </div>
       </div>
     </div></section>
 

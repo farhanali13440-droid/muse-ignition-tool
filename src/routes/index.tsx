@@ -185,11 +185,16 @@ function Index() {
 
     {/* Trust */}
     <section className="bg-lavender"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24 items-center`}>
-      <div className="relative aspect-[4/5] max-w-md bg-background flex items-center justify-center overflow-hidden"><div className="absolute size-[80%] rounded-full border border-sage-deep/30"/><div className="absolute size-[58%] rounded-full border border-sage-deep/30"/><div className="relative text-center"><p className="font-display text-8xl text-sage-deep">HQ</p><p className="eyebrow text-muted-foreground mt-4">Clinical Psychologist</p></div></div>
-      <div><Label n="04">Your psychologist</Label><h2 className="display text-5xl md:text-7xl">Meet Dr. Halima <em className="font-normal text-sage-deep">Sadia Qureshi.</em></h2>
-        <p className="mt-8 text-muted-foreground leading-8">Dr. Halima S. Qureshi is a Clinical Psychologist in Islamabad and the founder of Psychologists Hub, with over a decade of experience across clinical, educational and corporate settings.</p>
-        <p className="mt-5 text-muted-foreground leading-8">Specialising in trauma-focused recovery, she integrates evidence-based approaches — including CBT, NLP and Hypnotherapy — with advanced certifications in EMDR and IFS-informed practice.</p>
-        <div className="mt-8 flex flex-wrap gap-2">{["10+ years experience", "CBT", "EMDR", "IFS-informed", "NLP", "Trauma-focused"].map(t => <span key={t} className="text-xs uppercase tracking-[.12em] border border-foreground/25 px-3 py-2">{t}</span>)}</div></div>
+      <div className="w-full max-w-md">
+        <div className="relative aspect-[4/5] bg-background flex items-center justify-center overflow-hidden"><div className="absolute size-[80%] rounded-full border border-sage-deep/30"/><div className="absolute size-[58%] rounded-full border border-sage-deep/30"/><div className="relative text-center"><p className="font-display text-8xl text-sage-deep">HQ</p><p className="eyebrow text-muted-foreground mt-4">Dr. Halima Sadia Qureshi</p></div></div>
+        <p className="mt-4 text-center text-[11px] uppercase tracking-[.18em] text-muted-foreground">Professional • Private • 1:1</p>
+      </div>
+      <div><Label n="04">Who am I talking to?</Label><h2 className="display text-5xl md:text-7xl">Meet Dr. Halima <em className="font-normal text-sage-deep">Sadia Qureshi.</em></h2>
+        <p className="mt-5 font-display text-2xl">Consultant Clinical Psychologist</p>
+        <p className="text-sm text-muted-foreground">Psychologists Hub — Islamabad</p>
+        <p className="mt-7 text-muted-foreground leading-8 max-w-xl">Dr. Halima Sadia Qureshi is a Consultant Clinical Psychologist at Psychologists Hub.</p>
+        <p className="mt-4 text-muted-foreground leading-8 max-w-xl">Psychologists Hub provides psychological assessment and therapy services, including trauma therapy, EMDR, CBT, anxiety and mood-related support, stress management and online/in-clinic sessions.</p>
+        <div className="mt-8"><ContactButtons/></div></div>
     </div></section>
 
     {/* Objections */}

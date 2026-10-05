@@ -142,18 +142,28 @@ function Index() {
 
     {/* What happens */}
     <section className="bg-surface"><div className={`${wrap} py-20 md:py-28`}>
-      <Label n="02">What happens in the session</Label>
-      <h2 className="display text-5xl md:text-7xl max-w-4xl">Talk <span className="text-sage-deep">→</span> Understand <span className="text-sage-deep">→</span> <em className="font-normal text-sage-deep">Direction.</em></h2>
-      <ol className="mt-16 grid md:grid-cols-3 gap-10">{flow.map((s, i) => <li key={s.title} className="number-rule pt-6 relative">
-        <div className="flex justify-between items-center"><span className="text-xs text-muted-foreground">0{i+1}</span><s.icon size={28} strokeWidth={1.2} className="text-sage-deep"/></div>
-        <h3 className="font-display text-4xl mt-10 flex items-center gap-3">{s.title}{i < flow.length - 1 && <ArrowRight size={20} className="text-sage-deep hidden md:block"/>}</h3>
-        <p className="text-sm text-muted-foreground leading-7 mt-3">{s.text}</p>
+      <Label n="02">What exactly do I get?</Label>
+      <h2 className="display text-5xl md:text-6xl max-w-4xl">What happens in your <em className="font-normal text-sage-deep">30-minute Clarity Session?</em></h2>
+      <ol className="mt-16 grid md:grid-cols-3 gap-6 md:gap-0 items-stretch">{[
+        { icon: MessageCircle, t: "Talk", d: "Tell us what's going on." },
+        { icon: Compass, t: "Understand", d: "Explore what kind of support may be appropriate." },
+        { icon: Map, t: "Get direction", d: "Receive personalized guidance toward a possible next step." },
+      ].map((s, i) => <li key={s.t} className="relative flex md:flex-col items-start gap-5 md:pr-10">
+        <div className="flex items-center w-full gap-4">
+          <span className="size-16 shrink-0 rounded-full bg-background border border-sage-deep/40 flex items-center justify-center"><s.icon size={26} strokeWidth={1.3} className="text-sage-deep"/></span>
+          {i < 2 && <span className="hidden md:flex flex-1 items-center text-sage-deep"><span className="h-px flex-1 bg-sage-deep/40"/><ArrowRight size={18}/></span>}
+        </div>
+        <div>
+          <p className="text-xs uppercase tracking-[.15em] text-muted-foreground">0{i+1} — {s.t}</p>
+          <p className="font-display text-2xl mt-2 leading-snug">{s.d}</p>
+        </div>
       </li>)}</ol>
-      <div className="mt-14 flex flex-wrap gap-x-10 gap-y-4 text-sm text-muted-foreground">
-        <span className="flex items-center gap-2"><Clock size={16} className="text-sage-deep"/>30 minutes, one-to-one</span>
-        <span className="flex items-center gap-2"><Monitor size={16} className="text-sage-deep"/>In Islamabad or online</span>
-        <span className="flex items-center gap-2"><ShieldCheck size={16} className="text-sage-deep"/>Strictly confidential</span>
+      <div className="mt-16 border-t border-border pt-10">
+        <h3 className="eyebrow text-sage-deep mb-5">Your possible next step</h3>
+        <ul className="flex flex-wrap gap-3">{["Self-Help", "Short-Term Counseling", "Structured Program", "EMDR", "Referral"].map(o =>
+          <li key={o} className="flex items-center gap-2 border border-sage-deep/30 bg-background px-4 py-2 text-sm"><Check size={14} className="text-sage-deep"/>{o}</li>)}</ul>
       </div>
+      <Button asChild variant="editorial" size="spacious" className="mt-12"><a href="tel:+923461555542"><Phone/> Call to book</a></Button>
     </div></section>
 
     {/* New mechanism */}

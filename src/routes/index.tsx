@@ -56,7 +56,7 @@ function ConversationVisual() {
 }
 
 function Index() {
-  return <main>
+  return <main id="top">
     {/* Hero */}
     <section className="hero-field text-primary-foreground min-h-[680px] flex items-center">
       <div className="hero-arc" aria-hidden="true"/>
@@ -186,33 +186,30 @@ function Index() {
     </div></section>
 
     {/* Final offer */}
-    <section id="booking" className="hero-field text-primary-foreground"><div className={`${wrap} py-24 md:py-32 relative z-10`}>
+    <section id="booking" className="hero-field text-primary-foreground scroll-mt-20"><div className={`${wrap} py-24 md:py-32 relative z-10`}>
       <div className="text-center max-w-3xl mx-auto">
         <p className="eyebrow text-sage mb-6">First Step Clarity Session</p>
         <h2 className="display text-[clamp(3rem,6.5vw,6.5rem)]">Start with <span className="hero-word">one conversation.</span></h2>
         <p className="mt-6 text-sm uppercase tracking-[.18em] text-primary-foreground/80">30 Minutes • 1:1 • PKR 900</p>
         <p className="mt-6 font-display text-2xl md:text-3xl text-primary-foreground/90">One conversation to understand what you're carrying — and what could help.</p>
       </div>
-      <p className="eyebrow text-sage text-center mt-16 mb-6">Choose how you'd like to book</p>
-      <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 items-center max-w-4xl mx-auto">
-        <div className="border border-primary-foreground/25 bg-primary-foreground/5 p-8 text-center">
+      <p className="eyebrow text-sage text-center mt-12 mb-6">Choose how you'd like to book</p>
+      <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 items-stretch max-w-4xl mx-auto">
+        <div className="flex flex-col items-center border border-primary-foreground/25 bg-primary-foreground/5 p-8 md:p-10 text-center transition-colors hover:bg-primary-foreground/10">
           <Phone className="mx-auto text-sage" size={28} strokeWidth={1.4}/>
           <h3 className="font-display text-3xl mt-3">Call now</h3>
-          <p className="text-sm text-primary-foreground/70 mt-2">Speak directly with Psychologists Hub</p>
-          <Button asChild variant="editorialLight" size="spacious" className="mt-6"><a href="tel:+923461555542"><Phone/> Call to book</a></Button>
+          <p className="text-sm text-primary-foreground/70 mt-2 mb-6">Speak directly with Psychologists Hub</p>
+          <Button asChild variant="editorialLight" size="spacious" className="mt-auto w-full sm:w-auto"><a href="tel:+923461555542"><Phone/> Call to book</a></Button>
         </div>
-        <span className="eyebrow text-primary-foreground/60 text-center">or</span>
-        <div className="border border-primary-foreground/25 bg-primary-foreground/5 p-8 text-center">
+        <span className="eyebrow text-primary-foreground/60 self-center text-center">or</span>
+        <div className="flex flex-col items-center border border-primary-foreground/25 bg-primary-foreground/5 p-8 md:p-10 text-center transition-colors hover:bg-primary-foreground/10">
           <MessageCircle className="mx-auto text-sage" size={28} strokeWidth={1.4}/>
           <h3 className="font-display text-3xl mt-3">WhatsApp</h3>
-          <p className="text-sm text-primary-foreground/70 mt-2">Message us and schedule your session</p>
-          <Button asChild variant="editorialLight" size="spacious" className="mt-6"><a href="https://wa.me/923461555542" target="_blank" rel="noreferrer"><MessageCircle/> Book via WhatsApp</a></Button>
+          <p className="text-sm text-primary-foreground/70 mt-2 mb-6">Message us and schedule your session</p>
+          <Button asChild variant="editorialLight" size="spacious" className="mt-auto w-full sm:w-auto"><a href="https://wa.me/923461555542" target="_blank" rel="noreferrer"><MessageCircle/> Book via WhatsApp</a></Button>
         </div>
       </div>
-      <div className="mt-14 text-center text-sm text-primary-foreground/75">
-        <p className="eyebrow text-sage mb-3">Contact</p>
-        <p className="flex flex-wrap justify-center gap-x-8 gap-y-2"><a href="tel:+923315579476" className="hover:text-sage">+92-331-5579476</a><a href="tel:+923461555542" className="hover:text-sage">+92-346-1555542</a></p>
-      </div>
+      <p className="mt-10 text-center text-xs uppercase tracking-[.18em] text-primary-foreground/60 flex items-center justify-center gap-2"><ShieldCheck size={14} className="text-sage"/>Private • Confidential • Islamabad or online</p>
     </div></section>
   </main>;
 }

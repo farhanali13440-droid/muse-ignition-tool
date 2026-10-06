@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/psychologists-hub-logo.webp.asset.json";
@@ -17,64 +17,72 @@ export function Logo({ light = false }: { light?: boolean }) {
   </Link>;
 }
 
+export const sectionLinks = [
+  ["#problem", "Is this for me?"],
+  ["#session", "The session"],
+  ["#approach", "Why start here"],
+  ["#about", "Dr. Halima"],
+  ["#faq", "FAQ"],
+] as const;
+const whatsapp = "https://wa.me/923461555542";
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  return <header className="relative z-30 bg-background">
-    <div className="mx-auto max-w-[1500px] px-5 md:px-10 xl:px-14 h-[78px] md:h-[94px] flex items-center justify-between gap-6">
+  return <header className="sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-border">
+    <div className="mx-auto max-w-[1500px] px-5 md:px-10 xl:px-14 h-[72px] md:h-[84px] flex items-center justify-between gap-6">
       <Logo />
-      <nav aria-label="Section navigation" className="hidden lg:flex items-center gap-7">
-        <a href="#problem" className="text-sm hover:text-sage-deep transition-colors">Why this</a>
-        <a href="#session" className="text-sm hover:text-sage-deep transition-colors">The session</a>
-        <a href="#approach" className="text-sm hover:text-sage-deep transition-colors">How it works</a>
-        <a href="#about" className="text-sm hover:text-sage-deep transition-colors">About Dr. Halima</a>
-        <a href="#faq" className="text-sm hover:text-sage-deep transition-colors">FAQ</a>
-        <Button asChild variant="editorial" size="spacious"><a href="#booking">Book an appointment <ArrowUpRight /></a></Button>
+      <nav aria-label="Section navigation" className="hidden lg:flex items-center gap-8">
+        {sectionLinks.map(([href, label]) => <a key={href} href={href} className="relative text-sm py-2 after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-sage-deep after:transition-all hover:after:w-full hover:text-sage-deep transition-colors">{label}</a>)}
       </nav>
+      <div className="hidden lg:flex items-center gap-3">
+        <a href="tel:+923461555542" className="flex items-center gap-2 text-sm hover:text-sage-deep"><Phone size={16} className="text-sage-deep"/>{phone}</a>
+        <Button asChild variant="editorial" size="spacious"><a href="#booking">Book · PKR 900 <ArrowUpRight /></a></Button>
+      </div>
       <Button aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} variant="ghost" size="icon" className="lg:hidden" onClick={() => setOpen(!open)}>
         {open ? <X /> : <Menu />}
       </Button>
     </div>
-    {open && <nav aria-label="Mobile section navigation" className="lg:hidden absolute top-full left-0 right-0 bg-background border-t border-border shadow-lg px-5 py-6">
-      <div className="grid gap-1">
-        {[
-          ["#problem", "Why this"],
-          ["#session", "The session"],
-          ["#approach", "How it works"],
-          ["#about", "About Dr. Halima"],
-          ["#faq", "FAQ"],
-          ["#booking", "Book an appointment"],
-        ].map(([href, label]) => (
-          <a key={href} href={href} onClick={() => setOpen(false)} className="py-3 text-base hover:text-sage-deep transition-colors">{label}</a>
-        ))}
+    {open && <nav aria-label="Mobile section navigation" className="lg:hidden absolute top-full left-0 right-0 bg-background border-t border-border shadow-lg px-5 pt-4 pb-6 max-h-[calc(100vh-72px)] overflow-y-auto">
+      <div className="grid divide-y divide-border">
+        {sectionLinks.map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)} className="py-4 font-display text-2xl flex justify-between items-center hover:text-sage-deep">{label}<ArrowUpRight size={18} className="text-sage-deep"/></a>)}
+      </div>
+      <div className="grid grid-cols-2 gap-3 mt-6">
+        <Button asChild variant="editorial" size="spacious"><a href="tel:+923461555542" onClick={() => setOpen(false)}><Phone/> Call</a></Button>
+        <Button asChild variant="editorialOutline" size="spacious"><a href={whatsapp} target="_blank" rel="noreferrer" onClick={() => setOpen(false)}><MessageCircle/> WhatsApp</a></Button>
       </div>
     </nav>}
   </header>;
 }
 
 export function SiteFooter() {
-  return <footer className="bg-primary text-primary-foreground">
-    <div className="max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14 pt-16 md:pt-24 pb-8">
-      <div className="grid md:grid-cols-[1.3fr_.7fr_.8fr] gap-12 md:gap-14 pb-20 border-b border-primary-foreground/20">
+  return <footer className="bg-foreground text-background">
+    <div className="max-w-[1500px] mx-auto px-5 md:px-10 xl:px-14 pt-16 md:pt-20 pb-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-[1.4fr_.8fr_1fr_1fr] gap-12 pb-14 border-b border-background/15">
         <div>
           <Logo light />
-          <p className="mt-7 max-w-sm text-sm leading-7 text-primary-foreground/70">Compassionate, confidential care for the life you want to live. In Islamabad and wherever you are.</p>
-          <Button asChild variant="editorialLight" size="spacious" className="mt-8"><a href="#booking">Start your journey <ArrowUpRight /></a></Button>
+          <p className="mt-6 max-w-xs text-sm leading-7 text-background/70">Private, one-to-one psychological care in Islamabad and online.</p>
         </div>
         <div>
-          <p className="eyebrow text-sage mb-6">Start here</p>
-          <a href="#booking" className="text-sm text-primary-foreground/75 hover:text-primary-foreground">Book an appointment</a>
-          <a href="tel:+923461555542" className="block mt-3 text-sm text-primary-foreground/75 hover:text-primary-foreground">{phone}</a>
+          <p className="eyebrow text-sage mb-5">On this page</p>
+          <ul className="space-y-3">{sectionLinks.map(([href, label]) => <li key={href}><a href={href} className="text-sm text-background/75 hover:text-sage">{label}</a></li>)}</ul>
         </div>
         <div>
-          <p className="eyebrow text-sage mb-6">Get in touch</p>
-          <a className="block text-sm hover:underline" href="tel:+923461555542">{phone}</a>
-          <a className="block mt-3 text-sm break-all hover:underline" href={`mailto:${email}`}>{email}</a>
-          <p className="text-sm text-primary-foreground/65 leading-7 mt-6">Office # M-1, Mezzanine Floor,<br/>Paris Business Center, Soan Garden,<br/>Islamabad, Pakistan</p>
+          <p className="eyebrow text-sage mb-5">Contact</p>
+          <ul className="space-y-3 text-sm">
+            <li><a href="tel:+923461555542" className="flex items-center gap-2 hover:text-sage"><Phone size={15} className="text-sage"/>+92-346-1555542</a></li>
+            <li><a href="tel:+923315579476" className="flex items-center gap-2 hover:text-sage"><Phone size={15} className="text-sage"/>+92-331-5579476</a></li>
+            <li><a href={whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-sage"><MessageCircle size={15} className="text-sage"/>WhatsApp</a></li>
+            <li><a href={`mailto:${email}`} className="flex items-center gap-2 break-all hover:text-sage"><Mail size={15} className="text-sage shrink-0"/>{email}</a></li>
+          </ul>
+        </div>
+        <div>
+          <p className="eyebrow text-sage mb-5">Visit</p>
+          <p className="flex gap-2 text-sm text-background/75 leading-7"><MapPin size={15} className="text-sage shrink-0 mt-1.5"/><span>Office # M-1, Mezzanine Floor,<br/>Paris Business Center, Soan Garden,<br/>Islamabad, Pakistan</span></p>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row justify-between gap-4 pt-7 text-xs text-primary-foreground/55">
+      <div className="flex flex-col sm:flex-row justify-between gap-4 pt-7 text-xs text-background/55">
         <p>© {new Date().getFullYear()} Psychologists Hub. All rights reserved.</p>
-        <p>Care begins with a conversation.</p>
+        <a href="#top" className="hover:text-sage">Back to top ↑</a>
       </div>
     </div>
   </footer>;

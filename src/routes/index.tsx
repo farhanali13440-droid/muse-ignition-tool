@@ -102,20 +102,30 @@ function Index() {
         </ul>
         <Button asChild variant="editorial" size="spacious" className="mt-10"><a href="https://wa.me/923461555542" target="_blank" rel="noreferrer"><MessageCircle/> Book via WhatsApp</a></Button>
       </div>
-      <figure className="relative aspect-square max-w-md w-full mx-auto bg-background overflow-hidden" aria-label="Illustration of a person sitting quietly, thinking">
+      <figure className="relative aspect-square max-w-md w-full mx-auto bg-background border border-border overflow-hidden" aria-label="Illustration of a person in an armchair, talking with a listener who is offering support">
         <svg viewBox="0 0 400 400" className="absolute inset-0 w-full h-full text-foreground" aria-hidden="true">
-          <circle cx="290" cy="110" r="60" fill="var(--color-sage)" opacity=".2"/>
-          <path d="M120 120 q20 -25 45 -10 M260 70 q15 -20 35 -5" stroke="currentColor" strokeOpacity=".25" strokeWidth="2" fill="none"/>
-          <rect x="70" y="250" width="200" height="70" rx="16" fill="currentColor" opacity=".1"/>
-          <circle cx="165" cy="150" r="28" fill="currentColor" opacity=".85"/>
-          <path d="M125 260 C120 200 140 185 165 185 C195 185 210 205 205 260 Z" fill="var(--color-sage)" opacity=".9"/>
-          <path d="M185 205 C205 200 205 175 190 165" stroke="var(--color-sage)" strokeWidth="12" strokeLinecap="round" fill="none"/>
-          <rect x="280" y="230" width="34" height="34" rx="4" fill="currentColor" opacity=".25"/>
-          <path d="M290 230 q5 -12 18 -10" stroke="currentColor" strokeOpacity=".4" strokeWidth="2" fill="none"/>
-          <line x1="0" y1="320" x2="400" y2="320" stroke="currentColor" strokeOpacity=".2"/>
-          <circle cx="215" cy="115" r="4" fill="currentColor" opacity=".4"/><circle cx="230" cy="98" r="6" fill="currentColor" opacity=".35"/><circle cx="250" cy="80" r="9" fill="currentColor" opacity=".3"/>
+          <rect x="40" y="40" width="110" height="140" rx="4" fill="var(--color-surface)" stroke="currentColor" strokeOpacity=".15"/>
+          <line x1="95" y1="40" x2="95" y2="180" stroke="currentColor" strokeOpacity=".12"/><line x1="40" y1="110" x2="150" y2="110" stroke="currentColor" strokeOpacity=".12"/>
+          <circle cx="125" cy="70" r="16" fill="var(--color-sage)" opacity=".5"/>
+          <path d="M345 300 q-6 -60 -30 -90 M345 300 q4 -55 25 -80 M345 300 q-20 -40 -55 -50" stroke="var(--color-sage-deep)" strokeWidth="3" fill="none" strokeLinecap="round"/>
+          <path d="M318 212 q-16 -6 -22 6 q14 6 22 -6 M370 222 q8 -16 22 -10 q-8 14 -22 10 M292 252 q-18 0 -20 12 q16 2 20 -12" fill="var(--color-sage)"/>
+          <path d="M328 300 h34 l-5 40 h-24 Z" fill="currentColor" opacity=".2"/>
+          <line x1="0" y1="340" x2="400" y2="340" stroke="currentColor" strokeOpacity=".2"/>
+          <path d="M50 250 q0 -40 40 -40 h50 q30 0 30 40 v60 h-120 Z" fill="var(--color-sage)" opacity=".55"/>
+          <rect x="45" y="300" width="130" height="22" rx="8" fill="currentColor" opacity=".15"/>
+          <circle cx="110" cy="168" r="22" fill="currentColor" opacity=".85"/>
+          <path d="M80 300 c-4 -60 10 -98 30 -98 c24 0 36 40 32 98 Z" fill="var(--color-sage-deep)"/>
+          <path d="M138 240 q30 10 44 0" stroke="var(--color-sage-deep)" strokeWidth="11" strokeLinecap="round" fill="none"/>
+          <path d="M235 250 q0 -40 40 -40 h20 q30 0 30 40 v60 h-90 Z" fill="currentColor" opacity=".12"/>
+          <circle cx="275" cy="168" r="22" fill="currentColor" opacity=".7"/>
+          <path d="M248 300 c-4 -60 6 -98 27 -98 c22 0 32 40 28 98 Z" fill="currentColor" opacity=".55"/>
+          <path d="M252 240 q-30 6 -48 -2" stroke="currentColor" strokeOpacity=".55" strokeWidth="11" strokeLinecap="round" fill="none"/>
+          <rect x="150" y="96" width="74" height="40" rx="18" fill="var(--color-surface)" stroke="var(--color-sage-deep)" strokeOpacity=".5"/>
+          <path d="M162 134 l-8 14 l20 -10" fill="var(--color-surface)" stroke="var(--color-sage-deep)" strokeOpacity=".5"/>
+          <circle cx="173" cy="116" r="4" fill="var(--color-sage-deep)"/><circle cx="187" cy="116" r="4" fill="var(--color-sage-deep)"/><circle cx="201" cy="116" r="4" fill="var(--color-sage-deep)"/>
+          <path d="M240 112 c0 -10 14 -10 14 0 c0 -10 14 -10 14 0 c0 12 -14 20 -14 20 c0 0 -14 -8 -14 -20 Z" fill="var(--color-sage)" opacity=".9"/>
         </svg>
-        <figcaption className="absolute bottom-6 left-0 right-0 text-center font-display italic text-xl text-muted-foreground">“I'm not sure what I need.”</figcaption>
+        <figcaption className="absolute bottom-5 left-0 right-0 text-center font-display italic text-xl text-muted-foreground">“You don't have to carry this alone.”</figcaption>
       </figure>
     </div></section>
 

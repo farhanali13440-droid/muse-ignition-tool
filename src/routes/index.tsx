@@ -186,7 +186,7 @@ function Index() {
     </div></section>
 
     {/* Final offer */}
-    <section className="hero-field text-primary-foreground"><div className={`${wrap} py-24 md:py-32 relative z-10`}>
+    <section id="booking" className="hero-field text-primary-foreground"><div className={`${wrap} py-24 md:py-32 relative z-10`}>
       <div className="text-center max-w-3xl mx-auto">
         <p className="eyebrow text-sage mb-6">First Step Clarity Session</p>
         <h2 className="display text-[clamp(3rem,6.5vw,6.5rem)]">Start with <span className="hero-word">one conversation.</span></h2>

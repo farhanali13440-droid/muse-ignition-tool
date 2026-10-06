@@ -82,7 +82,7 @@ function Index() {
 
 
     {/* Problem + Desire */}
-    <section className="bg-cream"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[1.15fr_.85fr] gap-14 lg:gap-24 items-center`}>
+    <section id="problem" className="bg-cream scroll-mt-24"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[1.15fr_.85fr] gap-14 lg:gap-24 items-center`}>
       <div>
         <Label n="01">You're not alone in this</Label>
         <h2 className="display text-5xl md:text-6xl">You don't have to know what's wrong <em className="font-normal text-sage-deep">before you ask for help.</em></h2>
@@ -120,7 +120,7 @@ function Index() {
     </div></section>
 
     {/* What happens */}
-    <section className="bg-surface"><div className={`${wrap} py-20 md:py-28`}>
+    <section id="session" className="bg-surface scroll-mt-24"><div className={`${wrap} py-20 md:py-28`}>
       <Label n="02">What exactly do I get?</Label>
       <h2 className="display text-5xl md:text-6xl max-w-4xl">What happens in your <em className="font-normal text-sage-deep">30-minute Clarity Session?</em></h2>
       <ol className="mt-16 grid md:grid-cols-3 gap-6 md:gap-0 items-stretch">{[
@@ -146,7 +146,7 @@ function Index() {
     </div></section>
 
     {/* New mechanism */}
-    <section className="bg-primary text-primary-foreground"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[1fr_1fr] gap-14 lg:gap-24 items-center`}>
+    <section id="approach" className="bg-primary text-primary-foreground scroll-mt-24"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[1fr_1fr] gap-14 lg:gap-24 items-center`}>
       <div><p className="eyebrow text-sage mb-6">03 — Why this offer?</p><h2 className="display text-5xl md:text-6xl">You don't have to commit to long-term therapy to <em className="font-normal text-sage">take the first step.</em></h2>
         <p className="mt-8 text-primary-foreground/75 leading-8 max-w-md">The First Step Clarity Session is designed for people who aren't sure what kind of support they need.</p>
         <p className="mt-4 text-primary-foreground/75 leading-8 max-w-md">Instead of trying to figure it all out yourself, you can start with one focused conversation.</p></div>
@@ -163,7 +163,7 @@ function Index() {
     </div></section>
 
     {/* Trust */}
-    <section className="bg-lavender"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[1.05fr_.95fr] gap-14 lg:gap-24 items-center`}>
+    <section id="about" className="bg-lavender scroll-mt-24"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[1.05fr_.95fr] gap-14 lg:gap-24 items-center`}>
       <div>
         <Label n="04">Who am I talking to?</Label>
         <h2 className="display text-5xl md:text-7xl">Meet Dr. Halima <em className="font-normal text-sage-deep">Sadia Qureshi.</em></h2>
@@ -180,7 +180,7 @@ function Index() {
     </div></section>
 
     {/* Objections */}
-    <section className="bg-cream"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24`}>
+    <section id="faq" className="bg-cream scroll-mt-24"><div className={`${wrap} py-20 md:py-28 grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24`}>
       <div><Label n="05">Common questions</Label><h2 className="display text-5xl md:text-6xl">Still not sure if this is <em className="font-normal text-sage-deep">for you?</em></h2></div>
       <div className="border-t border-border">{objections.map((f) => <details key={f.q} className="group border-b border-border"><summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6 font-display text-2xl text-left"><span>{f.q}</span><span aria-hidden="true" className="text-sage-deep transition-transform group-open:rotate-45">+</span></summary><p className="pb-6 pr-10 text-muted-foreground leading-7">{f.a}</p></details>)}</div>
     </div></section>

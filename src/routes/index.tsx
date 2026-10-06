@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Check, MessageCircle, Compass, Map, Phone, ShieldCheck, Clock, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroPhoto from "@/assets/psychologists-hub-hero-2.png.asset.json";
-import drPhoto from "@/assets/dr-halima-qureshi.png.asset.json";
+import drPhoto from "@/assets/dr-halima-qureshi-2.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -174,7 +174,7 @@ function Index() {
         <div className="mt-8"><ContactButtons/></div>
       </div>
       <figure className="w-full max-w-md mx-auto lg:ml-auto">
-        <div className="relative aspect-[4/5] bg-background overflow-hidden"><img src={drPhoto.url} alt="Dr. Halima Sadia Qureshi, Consultant Clinical Psychologist at Psychologists Hub Islamabad" className="absolute inset-0 w-full h-full object-cover"/></div>
+        <div className="relative aspect-[4/5] bg-background overflow-hidden"><img src={drPhoto.url} alt="Dr. Halima Sadia Qureshi, Consultant Clinical Psychologist at Psychologists Hub Islamabad" className="absolute inset-0 w-full h-full object-cover object-[30%_center]"/></div>
         <figcaption className="mt-4 text-center text-[11px] uppercase tracking-[.18em] text-muted-foreground">Professional • Private • 1:1</figcaption>
       </figure>
     </div></section>

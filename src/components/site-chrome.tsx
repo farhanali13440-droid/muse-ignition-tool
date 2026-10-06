@@ -22,15 +22,31 @@ export function SiteHeader() {
   return <header className="relative z-30 bg-background">
     <div className="mx-auto max-w-[1500px] px-5 md:px-10 xl:px-14 h-[78px] md:h-[94px] flex items-center justify-between gap-6">
       <Logo />
-      <div className="hidden lg:block">
+      <nav aria-label="Section navigation" className="hidden lg:flex items-center gap-7">
+        <a href="#problem" className="text-sm hover:text-sage-deep transition-colors">Why this</a>
+        <a href="#session" className="text-sm hover:text-sage-deep transition-colors">The session</a>
+        <a href="#approach" className="text-sm hover:text-sage-deep transition-colors">How it works</a>
+        <a href="#about" className="text-sm hover:text-sage-deep transition-colors">About Dr. Halima</a>
+        <a href="#faq" className="text-sm hover:text-sage-deep transition-colors">FAQ</a>
         <Button asChild variant="editorial" size="spacious"><a href="#booking">Book an appointment <ArrowUpRight /></a></Button>
-      </div>
+      </nav>
       <Button aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} variant="ghost" size="icon" className="lg:hidden" onClick={() => setOpen(!open)}>
         {open ? <X /> : <Menu />}
       </Button>
     </div>
-    {open && <nav aria-label="Mobile navigation" className="lg:hidden absolute top-full left-0 right-0 bg-background border-t border-border shadow-lg px-5 py-5">
-      <Button asChild variant="editorial" size="spacious" className="w-full"><a href="#booking" onClick={() => setOpen(false)}>Book an appointment <ArrowUpRight /></a></Button>
+    {open && <nav aria-label="Mobile section navigation" className="lg:hidden absolute top-full left-0 right-0 bg-background border-t border-border shadow-lg px-5 py-6">
+      <div className="grid gap-1">
+        {[
+          ["#problem", "Why this"],
+          ["#session", "The session"],
+          ["#approach", "How it works"],
+          ["#about", "About Dr. Halima"],
+          ["#faq", "FAQ"],
+          ["#booking", "Book an appointment"],
+        ].map(([href, label]) => (
+          <a key={href} href={href} onClick={() => setOpen(false)} className="py-3 text-base hover:text-sage-deep transition-colors">{label}</a>
+        ))}
+      </div>
     </nav>}
   </header>;
 }
